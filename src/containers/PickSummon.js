@@ -1,5 +1,6 @@
 import React from "react"
 import CrystalPage from '../components/CrystalPage'
+import CharactersPage from '../components/CharactersPage'
 let currentCrystals = 300000
 
 export default class PickSummon extends React.Component {
@@ -11,6 +12,12 @@ export default class PickSummon extends React.Component {
   summon = () => {
     this.setState({
       display: "CrystalPage"
+    })
+  }
+
+  getCharacters = (event) => {
+    this.setState({
+      display: "Characters"
     })
   }
 
@@ -42,7 +49,11 @@ export default class PickSummon extends React.Component {
       )
     } else if (this.state.display = "CrystalPage") {
       return(
-        <CrystalPage />
+        <CrystalPage getCharacters={this.getCharacters}/>
+      )
+    } else if (this.state.display = "Characters") {
+      return(
+        <CharactersPage />
       )
     }
   }
