@@ -1,0 +1,26 @@
+#page {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: gold;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#ten-summon {
+  display: inline-block;
+  width: 100%;
+  background-color: gold;
+  border: solid red 5px;
+
+}
+
+#single-summon {
+  display: inline-block;
+  width: 100%;
+  background-color: gold;
+  border: solid red 5px;
+}
