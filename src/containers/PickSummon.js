@@ -1,5 +1,6 @@
 import React from "react"
 import CrystalPage from '../components/CrystalPage'
+let currentCrystals = 300000
 
 export default class PickSummon extends React.Component {
 
@@ -7,6 +8,11 @@ export default class PickSummon extends React.Component {
     display: "PickSummon"
   }
 
+  summon = () => {
+    this.setState({
+      display: "CrystalPage"
+    })
+  }
 
   render () {
     if (this.state.display === "PickSummon") {
@@ -15,18 +21,26 @@ export default class PickSummon extends React.Component {
           <div>
             <div id="ten-summon">
               <p>Ten Summon</p>
+              <br/>
+              <p>{currentCrystals}</p>
+              <br/>
               <img src="" />
-              <button> 3000 Crystals</button>
+              <br/>
+              <button onClick={this.summon}> 3000 Crystals</button>
             </div>
             <div id="single-summon">
               <p>Single Summon</p>
+              <br/>
+              <p>{currentCrystals}</p>
+              <br/>
               <img src="" />
-              <button> 300 Crystals</button>
+              <br/>
+              <button onClick={this.summon}> 300 Crystals</button>
             </div>
           </div>
         </div>
       )
-    } else {
+    } else if (this.state.display = "CrystalPage") {
       return(
         <CrystalPage />
       )
