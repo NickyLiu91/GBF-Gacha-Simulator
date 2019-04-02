@@ -1,6 +1,7 @@
 import React from "react"
 import CrystalPage from '../components/CrystalPage'
-import CharactersPage from '../components/CharactersPage'
+import WeaponPage from '../components/WeaponPage'
+import CharacterPage from '../components/CharacterPage'
 let currentCrystals = 300000
 
 export default class PickSummon extends React.Component {
@@ -15,9 +16,15 @@ export default class PickSummon extends React.Component {
     })
   }
 
+  getWeapons = () => {
+    this.setState({
+      display: "WeaponPage"
+    })
+  }
+
   getCharacters = () => {
     this.setState({
-      display: "CharactersPage"
+      display: "CharacterPage"
     })
   }
 
@@ -53,11 +60,15 @@ export default class PickSummon extends React.Component {
       )
     } else if (this.state.display === "CrystalPage") {
       return(
-        <CrystalPage getCharacters={this.getCharacters} printState={this.printState}/>
+        <CrystalPage getWeapons={this.getWeapons} />
       )
-    } else if (this.state.display === "CharactersPage") {
+    } else if (this.state.display === "WeaponPage") {
       return(
-        <CharactersPage printState={this.printState}/>
+        <WeaponPage getCharacters={this.getCharacters}/>
+      )
+    } else if (this.state.display === "CharacterPage") {
+      return(
+        <CharacterPage />
       )
     }
   }

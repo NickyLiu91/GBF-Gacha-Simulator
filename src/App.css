@@ -38,7 +38,7 @@
   align-items: center;*/
 }
 
-#crystal-page, #character-page {
+#crystal-page, #weapon-page, #character-page {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -92,7 +92,7 @@
   background-color: transparent;
 }
 
-#character-area{
+#weapon-area, #character-area {
   position: relative;
   height: 80%;
   width: 80%;
@@ -108,7 +108,12 @@
   width: 40%;
 }
 
-#weapon-name {
+.character {
+  height: 60%;
+  width: 60%;
+}
+
+#weapon-name, #character-name {
   border: solid gold 5px;
   width: 90%;
   position: relative;

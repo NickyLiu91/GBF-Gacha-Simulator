@@ -1,9 +1,9 @@
 import React from "react";
 
-const CharactersPage = (props) => {
+const WeaponPage = (props) => {
   return (
-    <div id="character-page">
-      <div id="character-area" onClick={event => {props.getCharacters(event)}}>
+    <div id="weapon-page">
+      <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
         <img className="weapon" src="images/Eden.png" />
         <br/>
         <div id="weapon-name">
@@ -14,4 +14,4 @@ const CharactersPage = (props) => {
   )
 }
 
-export default CharactersPage;
+export default WeaponPage;
