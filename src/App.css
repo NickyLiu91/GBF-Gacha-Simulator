@@ -81,3 +81,28 @@
   border-color: blue transparent transparent transparent;
   border-width: 150px 50px 50px 50px;
 }
+
+#crystal {
+  /*position: relative;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 50%;
+  background-color: transparent;
+}
+
+#summon-area, #character {
+  position: relative;
+  height: 70%;
+  width: 70%;
+  background-color: darkblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weapon {
+  height: 50%;
+  width: 50%;
+}
