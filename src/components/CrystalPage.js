@@ -2,9 +2,13 @@ import React from "react";
 
 const CrystalPage = (props) => {
   return (
-    <div onClick={event => {props.getCharacters(event)}}>
-      <button onClick={props.printState}>STATE</button>
-      <p>"hi"</p>
+    <div id="crystal-page" onClick={event => {props.getCharacters(event)}}>
+      <div id="summon-area">
+        <div id="summon-crystal-top">
+        </div>
+        <div id="summon-crystal-bottom">
+        </div>
+      </div>
     </div>
   )
 }

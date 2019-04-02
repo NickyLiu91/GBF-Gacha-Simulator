@@ -10,17 +10,15 @@ export default class PickSummon extends React.Component {
   }
 
   summon = () => {
-    console.log("summon")
     this.setState({
       display: "CrystalPage"
-    }, () => {console.log(this.state)})
+    })
   }
 
   getCharacters = () => {
-    console.log("characers")
     this.setState({
       display: "CharactersPage"
-    }, () => {console.log(this.state)})
+    })
   }
 
   printState = () => {
@@ -33,7 +31,6 @@ export default class PickSummon extends React.Component {
         <div id="page">
           <div>
             <div id="ten-summon">
-              <button onClick={this.printState}>STATE</button>
               <p>Ten Summon</p>
               <br/>
               <p>{currentCrystals}</p>

@@ -2,8 +2,7 @@ import React from "react";
 
 const CharactersPage = (props) => {
   return (
-    <div>
-      <button onClick={props.printState}>STATE</button>
+    <div id="character-page">
       <p>"bye--------------"</p>
     </div>
   )

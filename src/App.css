@@ -38,7 +38,46 @@
   align-items: center;*/
 }
 
-div {
-  background-color: blue;
-  color: red;
+#crystal-page, #character-page {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#summon-area {
+  position: relative;
+  height: 70%;
+  width: 70%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#summon-crystal-top {
+  position: absolute;
+  height: 0;
+  width: 0;
+  bottom: 50%;
+  background-color: transparent;
+  border-style: solid;
+  border-color: transparent transparent blue transparent;
+  border-width: 50px 50px 150px 50px;
+}
+
+#summon-crystal-bottom {
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: 50%;
+  background-color: transparent;
+  border-style: solid;
+  border-color: blue transparent transparent transparent;
+  border-width: 150px 50px 50px 50px;
 }
