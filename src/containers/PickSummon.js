@@ -10,15 +10,17 @@ export default class PickSummon extends React.Component {
   }
 
   summon = () => {
+    console.log("????????????????")
     this.setState({
       display: "CrystalPage"
-    })
+    }, console.log(this.state))
   }
 
   getCharacters = (event) => {
+    console.log("????")
     this.setState({
       display: "Characters"
-    })
+    }, () => {console.log(this.state)})
   }
 
   render () {

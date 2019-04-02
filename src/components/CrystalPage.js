@@ -2,7 +2,7 @@ import React from "react";
 
 const CrystalPage = (props) => {
   return (
-    <div onClick={event => props.getCharacters(event)}>
+    <div onClick={event => {props.getCharacters(event)}}>
       <p>"hi"</p>
     </div>
   )

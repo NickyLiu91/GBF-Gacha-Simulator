@@ -4,28 +4,40 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: gold;
-  display: flex;
+  background-color: blue;
+  /*display: flex;*/
   flex-wrap: wrap;
   width: 100%;
 }
 
 #ten-summon {
+  position: fixed;
   display: inline-block;
   width: 100%;
+  height: 50%;
+  top: 0;
   background-color: gold;
   border: solid red 5px;
+  text-align: center;
   /*display: flex;
   justify-content: center;
   align-items: center;*/
 }
 
 #single-summon {
+  position: fixed;
+  height: 50%;
   display: inline-block;
   width: 100%;
+  bottom: 0;
   background-color: gold;
   border: solid red 5px;
+  text-align: center;
   /*display: flex;
   justify-content: center;
   align-items: center;*/
+}
+
+div {
+  background-color: blue;
 }
