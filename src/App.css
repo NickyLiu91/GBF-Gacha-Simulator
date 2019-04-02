@@ -6,7 +6,7 @@
   right: 0;
   background-color: blue;
   /*display: flex;*/
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
   width: 100%;
 }
 
@@ -92,17 +92,31 @@
   background-color: transparent;
 }
 
-#summon-area, #character {
+#character-area{
   position: relative;
-  height: 70%;
-  width: 70%;
+  height: 80%;
+  width: 80%;
   background-color: darkblue;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .weapon {
-  height: 50%;
-  width: 50%;
+  height: 40%;
+  width: 40%;
+}
+
+#weapon-name {
+  border: solid gold 5px;
+  width: 90%;
+  position: relative;
+  color: gold;
+  font-size: 40px;
+  text-align: center;
+  background-color: white;
+  /*position: absolute;
+  bottom: 10%;
+  left: 50%;*/
 }

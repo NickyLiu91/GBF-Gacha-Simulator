@@ -7,7 +7,7 @@ const CrystalPage = (props) => {
         <div id="crystal" onClick={event => {props.getCharacters(event)}}>
           <div id="summon-crystal-top">
           </div>
-          <div id="summon-crystal-bottom">
+            <div id="summon-crystal-bottom">
           </div>
         </div>
       </div>
