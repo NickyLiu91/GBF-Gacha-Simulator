@@ -1,6 +1,6 @@
 import React from "react";
 
-const CharactersPage = (props) => {
+const TestPage = (props) => {
   return (
     <div>
       <button onClick={props.printState}>STATE</button>
@@ -9,4 +9,4 @@ const CharactersPage = (props) => {
   )
 }
 
-export default CharactersPage;
+export default TestPage;
