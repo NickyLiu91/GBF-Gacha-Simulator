@@ -9,25 +9,54 @@ export default class PickSummon extends React.Component {
   state = {
     display: "PickSummon",
     result: [],
-    allWeapons: [{"Kilij": "Barawa"}, {"Derringer": "Juri"}, {"Eden": "Lucio"}]
+    r: [{"Kilij": "Barawa"}],
+    sr: [{"Derringer": "Juri"}],
+    ssr: [{"Eden": "Lucio"}]
   }
 
   rollOne = () => {
-    output = Math.floor(Math.random() * 100)
+    let result
+    let output = Math.floor(Math.random() * 100)
+    console.log(output)
+
+    if (output <= 82) {
+      result = this.state.r[Math.floor(Math.random() * this.state.r.length)]
+      console.log(result)
+    } else if (output <= 97) {
+      result = this.state.sr[Math.floor(Math.random() * this.state.sr.length)]
+      console.log(result)
+    } else {
+      result = this.state.ssr[Math.floor(Math.random() * this.state.ssr.length)]
+      console.log(result)
+    }
+
     this.setState ({
-      result: [output]
-    })
+      result: [result],
+    }, this.setState({
+      display: "WeaponPage"
+    }))
   }
 
   rollTen = () => {
-    let result = []
+    let result
+    let allRolls = []
     var i
     for (i = 0; i < 10; i++) {
-      result.push(Math.floor(Math.random() * 100))
+      let output = Math.floor(Math.random() * 100)
+
+      if (output >= 82) {
+        result = this.state.r[Math.floor(Math.random() * this.state.r.length)]
+      } else if (output >= 97) {
+        result = this.state.sr[Math.floor(Math.random() * this.state.sr.length)]
+      } else {
+        result = this.state.ssr[Math.floor(Math.random() * this.state.ssr.length)]
+      }
+
+      allRolls.push(result)
     }
 
     this.setState({
-      result: [result]
+      result: [allRolls]
     })
   }
 
@@ -37,11 +66,6 @@ export default class PickSummon extends React.Component {
     })
   }
 
-  getWeapons = () => {
-    this.setState({
-      display: "WeaponPage"
-    })
-  }
 
   getCharacters = () => {
     this.setState({
@@ -81,15 +105,15 @@ export default class PickSummon extends React.Component {
       )
     } else if (this.state.display === "CrystalPage") {
       return(
-        <CrystalPage getWeapons={this.getWeapons} />
+        <CrystalPage rollOne={this.rollOne}/>
       )
     } else if (this.state.display === "WeaponPage") {
       return(
-        <WeaponPage getCharacters={this.getCharacters}/>
+        <WeaponPage getCharacters={this.getCharacters} result={this.state.result}/>
       )
     } else if (this.state.display === "CharacterPage") {
       return(
-        <CharacterPage />
+        <CharacterPage result={this.state.result}/>
       )
     }
   }
