@@ -2,11 +2,11 @@ import React from "react"
 import CrystalPage from '../components/CrystalPage'
 import WeaponPage from '../components/WeaponPage'
 import CharacterPage from '../components/CharacterPage'
-let currentCrystals = 300000
 
 export default class PickSummon extends React.Component {
 
   state = {
+    crystals: 30000,
     display: "PickSummon",
     result: [],
     r: [{"Kilij": "Barawa"}],
@@ -32,6 +32,7 @@ export default class PickSummon extends React.Component {
 
     this.setState ({
       result: [result],
+      crystals: this.state.crystals - 300
     }, this.setState({
       display: "WeaponPage"
     }))
@@ -55,9 +56,12 @@ export default class PickSummon extends React.Component {
       allRolls.push(result)
     }
 
-    this.setState({
-      result: [allRolls]
-    })
+    this.setState ({
+      result: allRolls,
+      crystals: this.state.crystals - 3000
+    }, this.setState({
+      display: "WeaponPage"
+    }))
   }
 
   summon = () => {
@@ -73,6 +77,12 @@ export default class PickSummon extends React.Component {
     })
   }
 
+  returnHome = () => {
+    this.setState({
+      display: "PickSummon"
+    })
+  }
+
   printState = () => {
     console.log(this.state)
   }
@@ -85,7 +95,7 @@ export default class PickSummon extends React.Component {
             <div id="ten-summon">
               <p>Ten Summon</p>
               <br/>
-              <p>{currentCrystals}</p>
+              <p>{this.state.crystals}</p>
               <br/>
               <img src="" />
               <br/>
@@ -94,7 +104,7 @@ export default class PickSummon extends React.Component {
             <div id="single-summon">
               <p>Single Summon</p>
               <br/>
-              <p>{currentCrystals}</p>
+              <p>{this.state.crystals}</p>
               <br/>
               <img src="" />
               <br/>
@@ -113,7 +123,7 @@ export default class PickSummon extends React.Component {
       )
     } else if (this.state.display === "CharacterPage") {
       return(
-        <CharacterPage result={this.state.result}/>
+        <CharacterPage result={this.state.result} returnHome={this.returnHome}/>
       )
     }
   }
