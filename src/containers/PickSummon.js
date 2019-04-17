@@ -9,8 +9,7 @@ export default class PickSummon extends React.Component {
   state = {
     display: "PickSummon",
     result: [],
-    allWeapons: ["Kilij", "Derringer", "Eden"],
-    allCharacters: ["Barawa", "Juri", "Lucio"]
+    allWeapons: [{"Kilij": "Barawa"}, {"Derringer": "Juri"}, {"Eden": "Lucio"}]
   }
 
   rollOne = () => {
