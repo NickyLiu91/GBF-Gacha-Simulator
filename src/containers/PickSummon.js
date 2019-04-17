@@ -7,7 +7,29 @@ let currentCrystals = 300000
 export default class PickSummon extends React.Component {
 
   state = {
-    display: "PickSummon"
+    display: "PickSummon",
+    result: [],
+    allWeapons: ["Kilij", "Derringer", "Eden"],
+    allCharacters: ["Barawa", "Juri", "Lucio"]
+  }
+
+  rollOne = () => {
+    output = Math.floor(Math.random() * 100)
+    this.setState ({
+      result: [output]
+    })
+  }
+
+  rollTen = () => {
+    let result = []
+    var i
+    for (i = 0; i < 10; i++) {
+      result.push(Math.floor(Math.random() * 100))
+    }
+
+    this.setState({
+      result: [result]
+    })
   }
 
   summon = () => {
