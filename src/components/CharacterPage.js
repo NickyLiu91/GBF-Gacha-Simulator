@@ -4,10 +4,10 @@ const CharacterPage = (props) => {
   return (
     <div id="character-page">
       <div id="character-area" onClick={event => {props.returnHome(event)}}>
-        <img className="character" src={ "images/" + Object.values(props.result[0])[0]  + ".png"} />
+        <img className="character" src={ "images/" + props.result[0].character + ".png"} />
         <br/>
         <div id="character-name">
-          <p>{Object.values(props.result[0])[0]}</p>
+          <p>{props.result[0].character}</p>
         </div>
       </div>
     </div>

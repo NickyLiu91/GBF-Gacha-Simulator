@@ -14,6 +14,30 @@ export default class PickSummon extends React.Component {
     ssr: [{"Eden": "Lucio"}]
   }
 
+  componentDidMount() {
+    let rare = []
+    let superRare = []
+    let superSuperRare = []
+    fetch(`http://localhost:3000/api/v1/summons`)
+    .then(res => res.json())
+    .then(json => {
+      json.forEach((obj) => {
+        if (obj.rarity === "R") {
+          rare.push(obj)
+        } else if (obj.rarity === "SR") {
+          superRare.push(obj)
+        } else {
+          superSuperRare.push(obj)
+        }
+      })
+    })
+    .then(res => this.setState({
+      r: rare,
+      sr: superRare,
+      ssr: superSuperRare
+    }, () => {console.log(this.state)}))
+  }
+
   rollOne = () => {
     let result
     let output = Math.floor(Math.random() * 100)
@@ -21,13 +45,13 @@ export default class PickSummon extends React.Component {
 
     if (output <= 82) {
       result = this.state.r[Math.floor(Math.random() * this.state.r.length)]
-      console.log(result)
+      // console.log(result)
     } else if (output <= 97) {
       result = this.state.sr[Math.floor(Math.random() * this.state.sr.length)]
-      console.log(result)
+      // console.log(result)
     } else {
       result = this.state.ssr[Math.floor(Math.random() * this.state.ssr.length)]
-      console.log(result)
+      // console.log(result)
     }
 
     this.setState ({
