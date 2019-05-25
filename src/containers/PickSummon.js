@@ -9,9 +9,7 @@ export default class PickSummon extends React.Component {
     crystals: 30000,
     display: "PickSummon",
     result: [],
-    r: [{"Kilij": "Barawa"}],
-    sr: [{"Derringer": "Juri"}],
-    ssr: [{"Eden": "Lucio"}]
+    rollNumber: 0,
   }
 
   componentDidMount() {
@@ -80,6 +78,8 @@ export default class PickSummon extends React.Component {
       allRolls.push(result)
     }
 
+    console.log(allRolls)
+
     this.setState ({
       result: allRolls,
       crystals: this.state.crystals - 3000
@@ -123,7 +123,7 @@ export default class PickSummon extends React.Component {
               <br/>
               <img src="" />
               <br/>
-              <button onClick={this.summon}> 3000 Crystals</button>
+              <button onClick={this.rollTen}> 3000 Crystals</button>
             </div>
             <div id="single-summon">
               <p>Single Summon</p>
@@ -143,11 +143,11 @@ export default class PickSummon extends React.Component {
       )
     } else if (this.state.display === "WeaponPage") {
       return(
-        <WeaponPage getCharacters={this.getCharacters} result={this.state.result}/>
+        <WeaponPage getCharacters={this.getCharacters} result={this.state.result} rollNumber={this.state.rollNumber}/>
       )
     } else if (this.state.display === "CharacterPage") {
       return(
-        <CharacterPage result={this.state.result} returnHome={this.returnHome}/>
+        <CharacterPage result={this.state.result} returnHome={this.returnHome} rollNumber={this.state.rollNumber}/>
       )
     }
   }

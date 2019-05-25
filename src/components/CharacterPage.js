@@ -4,10 +4,10 @@ const CharacterPage = (props) => {
   return (
     <div id="character-page">
       <div id="character-area" onClick={event => {props.returnHome(event)}}>
-        <img className="character" src={ "images/" + props.result[0].character + ".png"} />
+        <img className="character" src={ "images/" + props.result[props.rollNumber].character + ".png"} />
         <br/>
         <div id="character-name">
-          <p>{props.result[0].character}</p>
+          <p>{props.result[props.rollNumber].character}</p>
         </div>
       </div>
     </div>
