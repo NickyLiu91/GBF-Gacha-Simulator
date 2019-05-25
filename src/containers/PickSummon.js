@@ -107,6 +107,20 @@ export default class PickSummon extends React.Component {
     })
   }
 
+  nextRoll = () => {
+    if (this.state.rollNumber === this.state.result.length - 1) {
+      this.setState({
+        display: "PickSummon",
+        rollNumber: 0
+      })
+    } else {
+      this.setState({
+        rollNumber: this.state.rollNumber + 1,
+        display: "WeaponPage"
+      })
+    }
+  }
+
   printState = () => {
     console.log(this.state)
   }
@@ -147,7 +161,7 @@ export default class PickSummon extends React.Component {
       )
     } else if (this.state.display === "CharacterPage") {
       return(
-        <CharacterPage result={this.state.result} returnHome={this.returnHome} rollNumber={this.state.rollNumber}/>
+        <CharacterPage result={this.state.result} nextRoll={this.nextRoll} rollNumber={this.state.rollNumber}/>
       )
     }
   }
