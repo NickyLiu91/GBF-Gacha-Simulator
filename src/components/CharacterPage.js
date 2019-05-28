@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from 'react-redux';
 
 const CharacterPage = (props) => {
   return (
@@ -14,4 +15,15 @@ const CharacterPage = (props) => {
   )
 }
 
-export default CharacterPage;
+// export default CharacterPage;
+
+const mapStateToProps = state => {
+  return {
+    rollNumber: state.rollNumberChanger.rollNumber,
+    result: state.resultChanger.result
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(CharacterPage);
