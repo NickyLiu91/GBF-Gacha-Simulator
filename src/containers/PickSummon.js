@@ -40,7 +40,6 @@ class PickSummon extends React.Component {
   rollOne = () => {
     let result
     let output = Math.floor(Math.random() * 100)
-    console.log(output)
 
     if (output <= 82) {
       result = this.props.r[Math.floor(Math.random() * this.props.r.length)]
@@ -53,12 +52,18 @@ class PickSummon extends React.Component {
       // console.log(result)
     }
 
-    this.setState ({
-      result: [result],
-      crystals: this.props.crystals - 300
-    }, this.setState({
-      display: "WeaponPage"
-    }))
+    this.props.changeResult([result])
+    this.props.changeCrystals(this.props.crystals - 300)
+    this.props.changeDisplay("WeaponPage")
+
+    console.log(result)
+
+    // this.setState ({
+    //   result: [result],
+    //   crystals: this.props.crystals - 300
+    // }, this.setState({
+    //   display: "WeaponPage"
+    // }))
   }
 
   rollTen = () => {
@@ -82,44 +87,50 @@ class PickSummon extends React.Component {
 
     console.log(allRolls)
 
-    this.setState ({
-      result: allRolls,
-      crystals: this.props.crystals - 3000
-    }, this.setState({
-      display: "WeaponPage"
-    }))
+    this.props.changeResult(allRolls)
+    this.props.changeCrystals(this.props.crystals - 3000)
+    this.props.changeDisplay("WeaponPage")
+
+    // this.setState ({
+    //   result: allRolls,
+    //   crystals: this.props.crystals - 3000
+    // }, this.setState({
+    //   display: "WeaponPage"
+    // }))
   }
 
-  summon = () => {
-    this.setState({
-      display: "CrystalPage"
-    })
-  }
-
-
+  // summon = () => {
+  //   this.setState({
+  //     display: "CrystalPage"
+  //   })
+  // }
+  //
+  //
   getCharacters = () => {
-    this.setState({
-      display: "CharacterPage"
-    })
+    this.props.changeDisplay("CharacterPage")
+    // this.setState({
+    //   display: "CharacterPage"
+    // })
   }
 
-  returnHome = () => {
-    this.setState({
-      display: "PickSummon"
-    })
-  }
 
   nextRoll = () => {
     if (this.props.rollNumber === this.props.result.length - 1) {
-      this.setState({
-        display: "PickSummon",
-        rollNumber: 0
-      })
+      this.props.changeDisplay("PickSummon")
+      this.props.changeRollNumber(0)
+      
+      // this.setState({
+      //   display: "PickSummon",
+      //   rollNumber: 0
+      // })
     } else {
-      this.setState({
-        rollNumber: this.props.rollNumber + 1,
-        display: "WeaponPage"
-      })
+      this.props.changeRollNumber(this.props.rollNumber + 1)
+      console.log(this.props.rollNumber)
+      this.props.changeDisplay("WeaponPage")
+      // this.setState({
+      //   rollNumber: this.props.rollNumber + 1,
+      //   display: "WeaponPage"
+      // })
     }
   }
 
@@ -148,7 +159,7 @@ class PickSummon extends React.Component {
               <br/>
               <img src="" />
               <br/>
-              <button onClick={this.summon}> 300 Crystals</button>
+              <button onClick={this.rollOne}> 300 Crystals</button>
             </div>
           </div>
         </div>
