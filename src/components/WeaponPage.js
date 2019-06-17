@@ -6,7 +6,7 @@ const WeaponPage = (props) => {
     <div id="weapon-page">
       <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
       <div>
-      {console.log(props)}
+      {console.log(props.result)}
       {console.log(props.result)}
       {console.log(props.rollNumber)}
       </div>
@@ -30,43 +30,3 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps
 )(WeaponPage);
-
-const query = `
-query {
-  duelists {
-    name
-    rank
-  }
-}
-`
-
-const url = "http://localhost:3000/graphiql"
-
-const opts = {
-  method: "POST",
-  headers: {"Content-Type": "application/json"},
-  body: JSON.stringify({query})
-}
-
-fetch(url, opts)
-.then(res => res.json())
-.then(json => console.log(json))
-
-fetch(url, opts)
-.then(res => res.json())
-.then(json => console.log(json))
-
-fetch("http://localhost:3000/graphiql", {
-  method: "POST",
-  headers: {"Content-Type": "application/json"},
-  body: JSON.stringify({
-    `query {
-      duelists {
-        name
-        rank
-      }
-    }`
-  })
-})
-.then(res => res.json())
-.then(json => console.log(json))
