@@ -2,18 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import PickSummon from './containers/PickSummon';
+import CrystalPage from './components/CrystalPage';
+import NavBar from './components/NavBar';
 import * as serviceWorker from './serviceWorker';
-import {createStore} from 'redux'
-import {Provider} from 'react-redux'
-import rootReducer from './reducers/rootReducer.js'
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import rootReducer from './reducers/rootReducer.js';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const store=createStore(rootReducer)
 
-ReactDOM.render(
+
+ReactDOM.render((
   <Provider store={store}>
-    {' '}
-    <App />
-  </Provider>,
+    <Router>
+      <div>
+        {' '}
+        <App />
+      </div>
+    </Router>
+  </Provider>),
   document.getElementById('root')
 )
 
