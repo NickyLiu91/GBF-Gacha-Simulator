@@ -2,20 +2,20 @@ import React, { Component, Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import PickSummon from './containers/PickSummon';
-import CrystalPage from './components/CrystalPage';
-import NavBar from './components/NavBar';
-import {Route, Switch, withRouter} from 'react-router-dom';
+import {Route, Link, Switch} from 'react-router-dom';
 
-const App = props => {
+class App extends Component {
+  render() {
     return (
-      <Fragment>
-          <Switch>
-            <Route path="/store" component={PickSummon} />
-            <Route exact path="/summon" component={CrystalPage} />
-          </Switch>
-      </Fragment>
+      <div className="App">
+        <div id="background">
+          <header className="App-header">
+            <PickSummon />
+          </header>
+        </div>
+      </div>
     );
-
+  }
 }
 
-export default withRouter(App)
+export default App;

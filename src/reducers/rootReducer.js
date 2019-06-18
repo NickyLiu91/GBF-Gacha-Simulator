@@ -44,7 +44,7 @@ function rollNumberChanger(state = {rollNumber: 0}, action) {
 function rChanger(state = {r: []}, action) {
   switch (action.type) {
     case 'CHANGE_R':
-      console.log(action.newR);
+      // console.log(action.newR);
       return {r: action.newR}
     default:
       return state;

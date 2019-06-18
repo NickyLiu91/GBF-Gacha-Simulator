@@ -6,9 +6,6 @@ const WeaponPage = (props) => {
     <div id="weapon-page">
       <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
       <div>
-      {console.log(props.result)}
-      {console.log(props.result)}
-      {console.log(props.rollNumber)}
       </div>
         <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
         <br/>

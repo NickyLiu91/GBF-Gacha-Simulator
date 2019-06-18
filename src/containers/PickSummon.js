@@ -90,6 +90,7 @@ class PickSummon extends React.Component {
     this.props.changeResult(allRolls)
     this.props.changeCrystals(this.props.crystals - 3000)
     this.props.changeDisplay("WeaponPage")
+    console.log(this.props.state)
 
     // this.setState ({
     //   result: allRolls,
@@ -150,7 +151,7 @@ class PickSummon extends React.Component {
               <br/>
               <img src="" />
               <br/>
-              <button onClick={event => {this.props.changeDisplay("CrystalPage")}}> 3000 Crystals</button>
+              <button onClick={event => {this.props.changeDisplay("CrystalPageTen")}}> 3000 Crystals</button>
             </div>
             <div id="single-summon">
               <p>Single Summon</p>
@@ -159,14 +160,18 @@ class PickSummon extends React.Component {
               <br/>
               <img src="" />
               <br/>
-              <button onClick={event => {this.props.changeDisplay("CrystalPage")}}> 300 Crystals</button>
+              <button onClick={event => {this.props.changeDisplay("CrystalPageOne")}}> 300 Crystals</button>
             </div>
           </div>
         </div>
       )
-    } else if (this.props.display === "CrystalPage") {
+    } else if (this.props.display === "CrystalPageOne") {
       return(
-        <CrystalPage rollOne={this.rollOne} rollTen={this.rollTen}/>
+        <CrystalPage roll={this.rollOne} />
+      )
+    } else if (this.props.display === "CrystalPageTen") {
+      return(
+        <CrystalPage roll={this.rollTen} />
       )
     } else if (this.props.display === "WeaponPage") {
       return(
