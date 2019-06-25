@@ -2,19 +2,35 @@ import React from "react";
 import {connect} from 'react-redux';
 
 const WeaponPage = (props) => {
-  return (
-    <div id="weapon-page">
-      <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
-      <div>
-      </div>
-        <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
-        <br/>
-        <div id="weapon-name">
-          <p>{props.result[props.rollNumber].weapon}</p>
+  if (props.result[props.rollNumber].character !== 'None') {
+    return (
+      <div id="weapon-page">
+        <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
+        <div>
+        </div>
+          <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
+          <br/>
+          <div id="weapon-name">
+            <p>{props.result[props.rollNumber].weapon}</p>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return (
+      <div id="weapon-page">
+        <div id="weapon-area" onClick={event => {props.nextRoll(event)}}>
+        <div>
+        </div>
+          <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
+          <br/>
+          <div id="weapon-name">
+            <p>{props.result[props.rollNumber].weapon}</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {

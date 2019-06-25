@@ -175,7 +175,7 @@ class PickSummon extends React.Component {
       )
     } else if (this.props.display === "WeaponPage") {
       return(
-        <WeaponPage getCharacters={this.getCharacters} />
+        <WeaponPage getCharacters={this.getCharacters} nextRoll={this.nextRoll}/>
       )
     } else if (this.props.display === "CharacterPage") {
       return(
