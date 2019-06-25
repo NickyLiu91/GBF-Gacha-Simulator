@@ -37,7 +37,7 @@ class PickSummon extends React.Component {
     })
   }
 
-  rollOne = () => {
+  rollOne = (event) => {
     let result
     let output = Math.floor(Math.random() * 100)
 
@@ -54,19 +54,11 @@ class PickSummon extends React.Component {
 
     this.props.changeResult([result])
     this.props.changeCrystals(this.props.crystals - 300)
-    this.props.changeDisplay("WeaponPage")
+    this.props.changeDisplay("CrystalPage")
 
-    console.log(result)
-
-    // this.setState ({
-    //   result: [result],
-    //   crystals: this.props.crystals - 300
-    // }, this.setState({
-    //   display: "WeaponPage"
-    // }))
   }
 
-  rollTen = () => {
+  rollTen = (event) => {
     let result
     let allRolls = []
     var i
@@ -100,15 +92,8 @@ class PickSummon extends React.Component {
 
     this.props.changeResult(allRolls)
     this.props.changeCrystals(this.props.crystals - 3000)
-    this.props.changeDisplay("WeaponPage")
-    console.log(this.props.state)
+    this.props.changeDisplay("CrystalPage")
 
-    // this.setState ({
-    //   result: allRolls,
-    //   crystals: this.props.crystals - 3000
-    // }, this.setState({
-    //   display: "WeaponPage"
-    // }))
   }
 
   // summon = () => {
@@ -162,7 +147,7 @@ class PickSummon extends React.Component {
               <br/>
               <img src="" />
               <br/>
-              <button onClick={event => {this.props.changeDisplay("CrystalPageTen")}}> 3000 Crystals</button>
+              <button onClick={event => {this.rollTen(event)}}> 3000 Crystals</button>
             </div>
             <div id="single-summon">
               <p>Single Summon</p>
@@ -171,18 +156,14 @@ class PickSummon extends React.Component {
               <br/>
               <img src="" />
               <br/>
-              <button onClick={event => {this.props.changeDisplay("CrystalPageOne")}}> 300 Crystals</button>
+              <button onClick={event => {this.rollOne(event)}}> 300 Crystals</button>
             </div>
           </div>
         </div>
       )
-    } else if (this.props.display === "CrystalPageOne") {
+    } else if (this.props.display === "CrystalPage") {
       return(
-        <CrystalPage roll={this.rollOne} />
-      )
-    } else if (this.props.display === "CrystalPageTen") {
-      return(
-        <CrystalPage roll={this.rollTen} />
+        <CrystalPage  />
       )
     } else if (this.props.display === "WeaponPage") {
       return(
