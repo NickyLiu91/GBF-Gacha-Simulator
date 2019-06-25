@@ -71,18 +71,29 @@ class PickSummon extends React.Component {
     let allRolls = []
     var i
     for (i = 0; i < 10; i++) {
-      let output = Math.floor(Math.random() * 100)
-      console.log(output)
 
-      if (output <= 82) {
-        result = this.props.r[Math.floor(Math.random() * this.props.r.length)]
-      } else if (output <= 97) {
-        result = this.props.sr[Math.floor(Math.random() * this.props.sr.length)]
+      if (i == 9) {
+        let output = Math.floor(Math.random() * 100)
+
+        if (output <= 97) {
+          result = this.props.sr[Math.floor(Math.random() * this.props.sr.length)]
+        } else {
+          result = this.props.ssr[Math.floor(Math.random() * this.props.ssr.length)]
+        }
+        allRolls.push(result)
       } else {
-        result = this.props.ssr[Math.floor(Math.random() * this.props.ssr.length)]
-      }
+        let output = Math.floor(Math.random() * 100)
 
-      allRolls.push(result)
+        if (output <= 82) {
+          result = this.props.r[Math.floor(Math.random() * this.props.r.length)]
+        } else if (output <= 97) {
+          result = this.props.sr[Math.floor(Math.random() * this.props.sr.length)]
+        } else {
+          result = this.props.ssr[Math.floor(Math.random() * this.props.ssr.length)]
+        }
+
+        allRolls.push(result)
+      }
     }
 
     console.log(allRolls)
