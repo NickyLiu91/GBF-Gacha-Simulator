@@ -46,8 +46,6 @@ const CrystalPage = (props) => {
       )
     }
   } else {
-    let output = Math.floor(Math.random() * 100)
-    console.log(props.result.filter(object => object.rarity == "SSR"))
     return (
       <div id="crystal-page">
         <div id="summon-area">
