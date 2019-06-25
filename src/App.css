@@ -60,7 +60,7 @@
   align-items: center;
 }
 
-#summon-crystal-top {
+#summon-crystal-top-blue {
   position: absolute;
   height: 0;
   width: 0;
@@ -71,7 +71,7 @@
   border-width: 50px 50px 150px 50px;
 }
 
-#summon-crystal-bottom {
+#summon-crystal-bottom-blue {
   position: absolute;
   height: 0;
   width: 0;
@@ -81,6 +81,52 @@
   border-color: blue transparent transparent transparent;
   border-width: 150px 50px 50px 50px;
 }
+
+#summon-crystal-top-brown {
+  position: absolute;
+  height: 0;
+  width: 0;
+  bottom: 50%;
+  background-color: transparent;
+  border-style: solid;
+  border-color: transparent transparent brown transparent;
+  border-width: 50px 50px 150px 50px;
+}
+
+#summon-crystal-bottom-brown {
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: 50%;
+  background-color: transparent;
+  border-style: solid;
+  border-color: brown transparent transparent transparent;
+  border-width: 150px 50px 50px 50px;
+}
+
+#summon-crystal-top-rainbow {
+  position: absolute;
+  height: 0;
+  width: 0;
+  bottom: 50%;
+  background-color: transparent;
+  border-style: solid;
+  border-color: transparent transparent green transparent;
+  border-width: 50px 50px 150px 50px;
+}
+
+#summon-crystal-bottom-rainbow {
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: 50%;
+  background-color: transparent;
+  border-style: solid;
+  border-color: green transparent transparent transparent;
+  border-width: 150px 50px 50px 50px;
+}
+
+
 
 #crystal {
   /*position: relative;*/
