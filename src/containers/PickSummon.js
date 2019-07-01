@@ -61,6 +61,7 @@ class PickSummon extends React.Component {
   rollTen = (event) => {
     let result
     let allRolls = []
+    let sortedArray
     var i
     for (i = 0; i < 10; i++) {
 
@@ -88,9 +89,20 @@ class PickSummon extends React.Component {
       }
     }
 
-    console.log(allRolls)
 
-    this.props.changeResult(allRolls)
+    sortedArray = allRolls.sort((a, b) => {
+      if (a.character != "None" && b.character == "None") {
+        return 1
+      } else if (a.character == "None" && b.character != "None") {
+        return -1
+      } else {
+        return 1
+      }
+    })
+
+    console.log(sortedArray)
+
+    this.props.changeResult(sortedArray)
     this.props.changeCrystals(this.props.crystals - 3000)
     this.props.changeDisplay("CrystalPage")
 
