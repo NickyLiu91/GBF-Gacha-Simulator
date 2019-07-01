@@ -19,12 +19,12 @@ const WeaponPage = (props) => {
   } else {
     return (
       <div id="weapon-page">
-        <div id="weapon-area" onClick={event => {props.nextRoll(event)}}>
+        <div id="non-char-area" onClick={event => {props.nextRoll(event)}}>
         <div>
         </div>
           <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
           <br/>
-          <div id="weapon-name">
+          <div id="non-char-name">
             <p>{props.result[props.rollNumber].weapon}</p>
           </div>
         </div>
