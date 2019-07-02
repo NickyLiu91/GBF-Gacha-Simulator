@@ -59,7 +59,7 @@
   position: relative;
   height: 70%;
   width: 70%;
-  background-color: white;
+  background-color: LightGray;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,10 +93,20 @@
   height: 0;
   width: 0;
   bottom: 50%;
-  background-color: transparent;
   border-style: solid;
-  border-color: transparent transparent brown transparent;
-  border-width: 50px 50px 150px 50px;
+  border-color: transparent transparent white transparent;
+  /*border-top-color: white;
+  border-right-color: white;
+  border-bottom-color: green;
+  border-left-color: white;*/
+  border-width: 0 50px 150px 50px;
+  /*background: red;*/
+  /*background-color: blue;*/
+  /*border-image: linear-gradient(to bottom, darkturquoise, mediumpurple, white);*/
+}
+
+#blue-summon-crystal {
+  filter: sepia(100%) hue-rotate(175deg) saturate(300%)
 }
 
 #summon-crystal-bottom-brown {
