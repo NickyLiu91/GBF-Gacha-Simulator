@@ -1,14 +1,19 @@
-#page {
-  position: absolute;
+/*#page {
+  position: relative;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  /*background-color: blue;*/
-  /*display: flex;*/
-  /*flex-wrap: wrap;*/
+  background-color: blue;
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
-}
+}*/
+
+/*body {
+  position: relative;
+  background-color: blue;
+}*/
 
 #ten-summon {
   position: fixed;
@@ -203,23 +208,27 @@
   background-color: lightgreen;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .result-grid-single {
-  height: 70%;
-  width: 70%
+  height: 150px;
+  width: 200px;
+  /*margin: 5px;*/
 }
+
 
 #result-upper-half {
   position: fixed;
   display: inline-block;
-  width: 80%;
+  width: 70%;
   height: 40%;
   top: 0;
   background-color: black;
   border: solid red 5px;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   /*display: flex;
   justify-content: center;
   align-items: center;*/
@@ -229,7 +238,7 @@
   position: fixed;
   height: 40%;
   display: inline-block;
-  width: 80%;
+  width: 40%;
   bottom: 0;
   background-color: AntiqueWhite;
   border: solid red 5px;

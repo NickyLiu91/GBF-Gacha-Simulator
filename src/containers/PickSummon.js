@@ -151,7 +151,6 @@ class PickSummon extends React.Component {
   render () {
     if (this.props.display === "PickSummon") {
       return(
-        <div id="page">
           <div>
             <div id="ten-summon">
               <p>Ten Summon</p>
@@ -172,7 +171,6 @@ class PickSummon extends React.Component {
               <button onClick={event => {this.rollOne(event)}}> 300 Crystals</button>
             </div>
           </div>
-        </div>
       )
     } else if (this.props.display === "CrystalPage") {
       return(
