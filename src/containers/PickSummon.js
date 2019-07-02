@@ -2,6 +2,7 @@ import React from "react"
 import CrystalPage from '../components/CrystalPage'
 import WeaponPage from '../components/WeaponPage'
 import CharacterPage from '../components/CharacterPage'
+import ResultPage from './ResultPage'
 import {connect} from 'react-redux';
 
 class PickSummon extends React.Component {
@@ -125,7 +126,7 @@ class PickSummon extends React.Component {
 
   nextRoll = () => {
     if (this.props.rollNumber === this.props.result.length - 1) {
-      this.props.changeDisplay("PickSummon")
+      this.props.changeDisplay("ResultPage")
       this.props.changeRollNumber(0)
 
       // this.setState({
@@ -184,6 +185,10 @@ class PickSummon extends React.Component {
     } else if (this.props.display === "CharacterPage") {
       return(
         <CharacterPage nextRoll={this.nextRoll} />
+      )
+    } else if (this.props.display === "ResultPage") {
+      return(
+        <ResultPage />
       )
     }
   }
