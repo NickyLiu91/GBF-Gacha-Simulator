@@ -236,7 +236,7 @@
 
 #result-bottom-half {
   position: fixed;
-  height: 40%;
+  /*height: 50%;*/
   display: inline-block;
   width: 40%;
   bottom: 0;

@@ -6,7 +6,7 @@ const ResultGrid = (props) => {
     return (
       <div>
         <div className="result-item">
-          {props.item.weapon}
+          Obtained {props.item.weapon}!
         </div>
         <div className="result-item">
           {props.item.character} has joined your party!
@@ -16,7 +16,7 @@ const ResultGrid = (props) => {
   } else {
     return (
       <div className="result-item">
-        {props.item.weapon}
+        Obtained {props.item.weapon}!
       </div>
     )
   }
