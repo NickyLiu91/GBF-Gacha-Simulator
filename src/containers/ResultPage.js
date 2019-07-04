@@ -5,11 +5,15 @@ import {connect} from 'react-redux';
 
 const ResultPage = (props) => {
   return (
-    <div id="results-page" onClick={event => {props.changeDisplay("PickSummon")}}>
+    <div id="results-page" >
       <div id="result-upper-half">
         {props.result.map((item, index) => {
           return (<ResultGrid key={index} item={item}/>)
         })}
+      </div>
+      <div id="button-container">
+        <button onClick={event => {props.rollTen(event)}}>Draw Again</button>
+        <button onClick={event => {props.changeDisplay("PickSummon")}}>Back</button>
       </div>
       <div id="result-bottom-half">
         {props.result.map((item, index) => {

@@ -190,7 +190,7 @@ class PickSummon extends React.Component {
       )
     } else if (this.props.display === "ResultPage") {
       return(
-        <ResultPage />
+        <ResultPage rollTen={this.rollTen}/>
       )
     }
   }
