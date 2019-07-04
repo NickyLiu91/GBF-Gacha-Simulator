@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 const ResultPage = (props) => {
   return (
-    <div id="results-page">
+    <div id="results-page" onClick={event => {props.changeDisplay("PickSummon")}}>
       <div id="result-upper-half">
         {props.result.map((item, index) => {
           return (<ResultGrid key={index} item={item}/>)
@@ -26,6 +26,13 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    changeDisplay: (event) => dispatch({type: 'CHANGE_DISPLAY', newDisplay: event})
+  }
+}
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ResultPage);

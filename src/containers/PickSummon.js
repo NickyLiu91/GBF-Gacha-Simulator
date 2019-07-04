@@ -126,8 +126,12 @@ class PickSummon extends React.Component {
 
   nextRoll = () => {
     if (this.props.rollNumber === this.props.result.length - 1) {
-      this.props.changeDisplay("ResultPage")
-      this.props.changeRollNumber(0)
+      if (this.props.result.length === 1) {
+        this.props.changeDisplay("PickSummon")
+      } else {
+        this.props.changeDisplay("ResultPage")
+        this.props.changeRollNumber(0)
+      }
 
       // this.setState({
       //   display: "PickSummon",
