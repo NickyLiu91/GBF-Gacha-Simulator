@@ -2,7 +2,7 @@ import React from "react";
 // import {connect} from 'react-redux';
 
 const ResultGrid = (props) => {
-  // if (props.item.character != "None") {
+  if (props.item.character != "None") {
     return (
       <div>
         <div className="result-item">
@@ -13,14 +13,14 @@ const ResultGrid = (props) => {
         </div>
       </div>
     )
-  // }
-  // else {
-  //   return (
-  //     <div className="result-item">
-  //       Obtained {props.item.weapon}!
-  //     </div>
-  //   )
-  // }
+  }
+  else {
+    return (
+      <div className="result-item">
+        Obtained {props.item.weapon}!
+      </div>
+    )
+  }
 }
 
 export default ResultGrid
