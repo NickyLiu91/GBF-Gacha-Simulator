@@ -7,12 +7,10 @@ import {connect} from 'react-redux';
 
 class PickSummon extends React.Component {
 
-  // state = {
-  //   crystals: 30000,
-  //   display: "PickSummon",
-  //   result: [],
-  //   rollNumber: 0,
-  // }
+  state = {
+    eventName: "None",
+    galaName: "None"
+  }
 
   componentDidMount() {
     let rare = []
@@ -152,6 +150,20 @@ class PickSummon extends React.Component {
     console.log(this.props)
   }
 
+  changeEventName = (event) => {
+    event.preventDefault()
+    this.setState({
+      eventName: event.target.value
+    }, () => {console.log(this.state)})
+  }
+
+  changeGalaName = (event) => {
+    event.preventDefault()
+    this.setState({
+      galaName: event.target.value
+    }, () => {console.log(this.state)})
+  }
+
   render () {
     if (this.props.display === "PickSummon") {
       return(
@@ -160,22 +172,22 @@ class PickSummon extends React.Component {
             <div className="event-bar">
             <div>Event:</div>
               <form>
-                <select>
-                  <option value="None">None</option>
-                  <option value="Summer">Summer</option>
-                  <option value="Halloween">Halloween</option>
-                  <option value="Holiday">Holiday</option>
-                  <option value="Valentines">Valentines</option>
+                <select onChange={this.changeEventName}>
+                  <option value="None" >None</option>
+                  <option value="Summer" >Summer</option>
+                  <option value="Halloween" >Halloween</option>
+                  <option value="Holiday" >Holiday</option>
+                  <option value="Valentines" >Valentines</option>
                 </select>
               </form>
             </div>
             <div className="event-bar">
             <div>Gala:</div>
               <form>
-                <select>
-                  <option value="None">None</option>
-                  <option value="Flash">Flash</option>
-                  <option value="Grand">Grand</option>
+                <select onChange={this.changeGalaName}>
+                  <option value="None" >None</option>
+                  <option value="Flash" >Flash</option>
+                  <option value="Grand" >Grand</option>
                 </select>
               </form>
             </div>
@@ -228,8 +240,8 @@ const mapStateToProps = state => {
     rollNumber: state.rollNumberChanger.rollNumber,
     r: state.rChanger.r,
     sr: state.srChanger.sr,
-    ssr: state.ssrChanger.ssr,
-    filter: state.filterChanger.filter
+    ssr: state.ssrChanger.ssr
+    // filter: state.filterChanger.filter
   }
 }
 
@@ -241,8 +253,8 @@ const mapDispatchToProps = dispatch => {
     changeRollNumber: (event) => dispatch({type: 'CHANGE_ROLL_NUMBER', newRollNumber: event}),
     changeR: (event) => dispatch({type: 'CHANGE_R', newR: event}),
     changeSR: (event) => dispatch({type: 'CHANGE_SR', newSR: event}),
-    changeSSR: (event) => dispatch({type: 'CHANGE_SSR', newSSR: event}),
-    changeFilter: (event) => dispatch({type: 'CHANGE_FILTER', filter: event})
+    changeSSR: (event) => dispatch({type: 'CHANGE_SSR', newSSR: event})
+    // changeFilter: (event) => dispatch({type: 'CHANGE_FILTER', filter: event})
   }
 }
 
