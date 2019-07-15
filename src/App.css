@@ -15,9 +15,23 @@
   background-color: blue;
 }*/
 
+form {
+  margin-left: 10px;
+}
+
+.event-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 #event {
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: AntiqueWhite;
+  height: 50px;
+  border-top: solid gold 5px;
 }
 
 #ten-summon {
@@ -28,7 +42,7 @@
   /*top: 0;*/
   left: 0;
   background-color: AntiqueWhite;
-  border: solid red 5px;
+  border-top: solid gold 5px;
   text-align: center;
   /*display: flex;
   justify-content: center;
@@ -43,7 +57,7 @@
   bottom: 0;
   left: 0;
   background-color: AntiqueWhite;
-  border: solid red 5px;
+  border-top: solid gold 5px;
   text-align: center;
   /*display: flex;
   justify-content: center;
@@ -292,7 +306,7 @@ body {
 button {
   width: 200px;
   background-color: DeepSkyBlue;
-  border: solid tan 2px;
+  border: solid tan 10px;
   border-radius: 30%;
   color: white;
   font-size: 20px;

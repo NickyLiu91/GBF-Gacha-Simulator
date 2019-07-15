@@ -156,21 +156,29 @@ class PickSummon extends React.Component {
     if (this.props.display === "PickSummon") {
       return(
         <div>
-        <div id="event">
-          <form>
-            <select name="event">
-              <option value="None">None</option>
-              <option value="Summer">Summer</option>
-              <option value="Halloween">Halloween</option>
-              <option value="Holiday">Holiday</option>
-              <option value="Valentines">Valentines</option>
-            </select>
-            <select name="gala">
-              <option value="None">None</option>
-              <option value="Flash">Flash</option>
-              <option value="Grand">Grand</option>
-            </select>
-          </form>
+          <div id="event">
+            <div className="event-bar">
+            <div>Event:</div>
+              <form>
+                <select>
+                  <option value="None">None</option>
+                  <option value="Summer">Summer</option>
+                  <option value="Halloween">Halloween</option>
+                  <option value="Holiday">Holiday</option>
+                  <option value="Valentines">Valentines</option>
+                </select>
+              </form>
+            </div>
+            <div className="event-bar">
+            <div>Gala:</div>
+              <form>
+                <select>
+                  <option value="None">None</option>
+                  <option value="Flash">Flash</option>
+                  <option value="Grand">Grand</option>
+                </select>
+              </form>
+            </div>
           </div>
           <div id="ten-summon">
             <p>Ten Summon</p>
