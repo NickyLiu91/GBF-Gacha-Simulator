@@ -61,12 +61,23 @@ function srChanger(state = {sr: []}, action) {
       return state;
   }
 }
+
 function ssrChanger(state = {ssr: []}, action) {
   // console.log("SSR")
   switch (action.type) {
     case 'CHANGE_SSR':
       // console.log(state);
       return {ssr: action.newSSR}
+    default:
+      return state;
+  }
+}
+
+function filterChanger(state = {filter: []}, action) {
+  switch (action.type) {
+    case 'CHANGE_FILTER':
+      console.log(state);
+      return {ssr: action.filter}
     default:
       return state;
   }
@@ -79,5 +90,6 @@ export default combineReducers({
   rollNumberChanger,
   rChanger,
   srChanger,
-  ssrChanger
+  ssrChanger,
+  filterChanger
 })

@@ -155,26 +155,42 @@ class PickSummon extends React.Component {
   render () {
     if (this.props.display === "PickSummon") {
       return(
-          <div>
-            <div id="ten-summon">
-              <p>Ten Summon</p>
-              <br/>
-              <p>{this.props.crystals}</p>
-              <br/>
-              <img src="" />
-              <br/>
-              <button onClick={event => {this.rollTen(event)}}> 3000 Crystals</button>
-            </div>
-            <div id="single-summon">
-              <p>Single Summon</p>
-              <br/>
-              <p>{this.props.crystals}</p>
-              <br/>
-              <img src="" />
-              <br/>
-              <button onClick={event => {this.rollOne(event)}}> 300 Crystals</button>
-            </div>
+        <div>
+        <div id="event">
+          <form>
+            <select name="event">
+              <option value="None">None</option>
+              <option value="Summer">Summer</option>
+              <option value="Halloween">Halloween</option>
+              <option value="Holiday">Holiday</option>
+              <option value="Valentines">Valentines</option>
+            </select>
+            <select name="gala">
+              <option value="None">None</option>
+              <option value="Flash">Flash</option>
+              <option value="Grand">Grand</option>
+            </select>
+          </form>
           </div>
+          <div id="ten-summon">
+            <p>Ten Summon</p>
+            <br/>
+            <p>{this.props.crystals}</p>
+            <br/>
+            <img src="" />
+            <br/>
+            <button onClick={event => {this.rollTen(event)}}> 3000 Crystals</button>
+          </div>
+          <div id="single-summon">
+            <p>Single Summon</p>
+            <br/>
+            <p>{this.props.crystals}</p>
+            <br/>
+            <img src="" />
+            <br/>
+            <button onClick={event => {this.rollOne(event)}}> 300 Crystals</button>
+          </div>
+        </div>
       )
     } else if (this.props.display === "CrystalPage") {
       return(
@@ -204,7 +220,8 @@ const mapStateToProps = state => {
     rollNumber: state.rollNumberChanger.rollNumber,
     r: state.rChanger.r,
     sr: state.srChanger.sr,
-    ssr: state.ssrChanger.ssr
+    ssr: state.ssrChanger.ssr,
+    filter: state.filterChanger.filter
   }
 }
 
@@ -216,7 +233,8 @@ const mapDispatchToProps = dispatch => {
     changeRollNumber: (event) => dispatch({type: 'CHANGE_ROLL_NUMBER', newRollNumber: event}),
     changeR: (event) => dispatch({type: 'CHANGE_R', newR: event}),
     changeSR: (event) => dispatch({type: 'CHANGE_SR', newSR: event}),
-    changeSSR: (event) => dispatch({type: 'CHANGE_SSR', newSSR: event})
+    changeSSR: (event) => dispatch({type: 'CHANGE_SSR', newSSR: event}),
+    changeFilter: (event) => dispatch({type: 'CHANGE_FILTER', filter: event})
   }
 }
 
