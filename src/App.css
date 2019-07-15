@@ -1,19 +1,9 @@
-/*#page {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: blue;
+#summon-page {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
-}*/
-
-/*body {
-  position: relative;
-  background-color: blue;
-}*/
+  justify-content: center;
+}
 
 form {
   margin-left: 10px;
@@ -30,35 +20,41 @@ form {
   justify-content: center;
   align-items: center;
   background-color: AntiqueWhite;
-  height: 50px;
-  border-top: solid gold 5px;
+  height: 5vh;
+  width: 80vw;
+  border-left: solid gold 5px;
+  border-right: solid gold 5px;
 }
 
 #ten-summon {
-  position: fixed;
-  display: inline-block;
-  width: 100%;
-  height: 50%;
+  /*position: fixed;*/
+  /*display: inline-block;*/
+  height: 47.5vh;
+  width: 80vw;
   /*top: 0;*/
-  left: 0;
+  left: 10%;
   background-color: AntiqueWhite;
   border-top: solid gold 5px;
   text-align: center;
+  border-left: solid gold 5px;
+  border-right: solid gold 5px;
   /*display: flex;
   justify-content: center;
   align-items: center;*/
 }
 
 #single-summon {
-  position: fixed;
-  height: 50%;
-  display: inline-block;
-  width: 100%;
+  /*position: fixed;*/
+  /*display: inline-block;*/
+  height: 47.5vh;
+  width: 80vw;
   bottom: 0;
   left: 0;
   background-color: AntiqueWhite;
   border-top: solid gold 5px;
   text-align: center;
+  border-left: solid gold 5px;
+  border-right: solid gold 5px;
   /*display: flex;
   justify-content: center;
   align-items: center;*/
@@ -86,7 +82,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid black 5px;
+  border: solid gold 5px;
 }
 
 #summon-crystal-top-blue {
@@ -186,7 +182,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid black 5px;
+  border: solid gold 5px;
 }
 
 #weapon-area, #character-area {
@@ -200,7 +196,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid red 5px;
+  border: solid gold 5px;
 }
 
 .weapon {
@@ -256,7 +252,7 @@ form {
   height: 40%;
   /*top: 0;*/
   background-color: black;
-  border-bottom: lightgreen solid 100px;
+  border: solid gold 5px;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -272,7 +268,7 @@ form {
   width: 40%;
   /*bottom: 0;*/
   background-color: AntiqueWhite;
-  border: solid red 5px;
+  border: solid gold 5px;
   text-align: center;
   /*display: flex;
   justify-content: center;
@@ -280,9 +276,9 @@ form {
 }
 
 .result-item {
-  border-right: solid black 2px;
-  border-left: solid black 2px;
-  border-bottom: solid black 2px;
+  /*border-right: solid black 2px;
+  border-left: solid black 2px;*/
+  border-bottom: solid gold 2px;
 }
 
 #button-container {
@@ -293,11 +289,12 @@ form {
   display: flex;
   /*flex-direction: row;*/
   justify-content: space-between;
-  border-bottom: lightgreen solid 100px;
+  border-top: lightgray solid 100px;
+  border-bottom: lightgray solid 100px;
 }
 
 body {
-  background-color: lightgreen;
+  background-color: lightgray;
   /*display: flex;
   justify-content: center;*/
   /*flex-direction: row;*/

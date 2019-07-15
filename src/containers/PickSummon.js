@@ -62,6 +62,14 @@ class PickSummon extends React.Component {
     let allRolls = []
     let sortedArray
     var i
+    let filteredR = this.props.r.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+    let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+    let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+
+    console.log(filteredR)
+    console.log(filteredSR)
+    console.log(filteredSSR)
+
     for (i = 0; i < 10; i++) {
 
       if (i == 9) {
@@ -145,29 +153,24 @@ class PickSummon extends React.Component {
       // })
     }
   }
-
-  printState = () => {
-    console.log(this.props)
-  }
-
   changeEventName = (event) => {
     event.preventDefault()
     this.setState({
       eventName: event.target.value
-    }, () => {console.log(this.state)})
+    })
   }
 
   changeGalaName = (event) => {
     event.preventDefault()
     this.setState({
       galaName: event.target.value
-    }, () => {console.log(this.state)})
+    })
   }
 
   render () {
     if (this.props.display === "PickSummon") {
       return(
-        <div>
+        <div id="summon-page">
           <div id="event">
             <div className="event-bar">
             <div>Event:</div>
@@ -177,7 +180,7 @@ class PickSummon extends React.Component {
                   <option value="Summer" >Summer</option>
                   <option value="Halloween" >Halloween</option>
                   <option value="Holiday" >Holiday</option>
-                  <option value="Valentines" >Valentines</option>
+                  <option value="Valentine" >Valentine</option>
                 </select>
               </form>
             </div>
@@ -193,7 +196,11 @@ class PickSummon extends React.Component {
             </div>
           </div>
           <div id="ten-summon">
-            <p>Ten Summon</p>
+            <p>Premium 10-Part Draw</p>
+            <div className="banner">
+              <img src="images/banner.png" />
+              <div>This contains ten cerulean sparks and at least one SR/SSR item!</div>
+            </div>
             <br/>
             <p>{this.props.crystals}</p>
             <br/>
@@ -202,7 +209,11 @@ class PickSummon extends React.Component {
             <button onClick={event => {this.rollTen(event)}}> 3000 Crystals</button>
           </div>
           <div id="single-summon">
-            <p>Single Summon</p>
+            <p>Permium Draw</p>
+            <div className="banner">
+              <img src="images/banner.png" />
+              <div>This contains one cerulean spark and at least one R-SSR item!</div>
+            </div>
             <br/>
             <p>{this.props.crystals}</p>
             <br/>
