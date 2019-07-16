@@ -85,7 +85,7 @@ form {
   border: solid gold 5px;
 }
 
-#summon-crystal-top-blue {
+/*#summon-crystal-top-blue {
   position: absolute;
   height: 0;
   width: 0;
@@ -105,30 +105,23 @@ form {
   border-style: solid;
   border-color: blue transparent transparent transparent;
   border-width: 150px 50px 50px 50px;
-}
+}*/
 
-#summon-crystal-top-brown {
+/*#summon-crystal-top-brown {
   position: absolute;
   height: 0;
   width: 0;
   bottom: 50%;
   border-style: solid;
   border-color: transparent transparent white transparent;
-  /*border-top-color: white;
-  border-right-color: white;
-  border-bottom-color: green;
-  border-left-color: white;*/
   border-width: 0 50px 150px 50px;
-  /*background: red;*/
-  /*background-color: blue;*/
-  /*border-image: linear-gradient(to bottom, darkturquoise, mediumpurple, white);*/
-}
+}*/
 
 #blue-summon-crystal {
   filter: sepia(100%) hue-rotate(175deg) saturate(300%)
 }
 
-#summon-crystal-bottom-brown {
+/*#summon-crystal-bottom-brown {
   position: absolute;
   height: 0;
   width: 0;
@@ -137,9 +130,9 @@ form {
   border-style: solid;
   border-color: brown transparent transparent transparent;
   border-width: 150px 50px 50px 50px;
-}
+}*/
 
-#summon-crystal-top-rainbow {
+/*#summon-crystal-top-rainbow {
   position: absolute;
   height: 0;
   width: 0;
@@ -159,16 +152,32 @@ form {
   border-style: solid;
   border-color: green transparent transparent transparent;
   border-width: 150px 50px 50px 50px;
-}
+}*/
 
 #crystal {
-  /*position: relative;*/
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 50%;
   width: 50%;
-  background-color: transparent;
+  animation: move 1s infinite;
+  /*animation-name: glow 1s ease-in-out infinite alternate;*/
+}
+
+@keyframes move {
+  from {top: 2px;}
+  to {bottom: 2px;}
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
 }
 
 #non-char-area{
