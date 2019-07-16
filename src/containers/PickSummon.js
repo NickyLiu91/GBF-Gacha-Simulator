@@ -39,17 +39,28 @@ class PickSummon extends React.Component {
   rollOne = (event) => {
     let result
     let output = Math.floor(Math.random() * 100)
+    let filteredR = this.props.r.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+    let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+    let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
 
-    if (output <= 82) {
-      result = this.props.r[Math.floor(Math.random() * this.props.r.length)]
-      // console.log(result)
-    } else if (output <= 97) {
-      result = this.props.sr[Math.floor(Math.random() * this.props.sr.length)]
-      // console.log(result)
+    if (this.state.galaName === "None") {
+      if (output <= 82) {
+        result = filteredR[Math.floor(Math.random() * filteredR.length)]
+      } else if (output <= 97) {
+        result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+      } else {
+        result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+      }
     } else {
-      result = this.props.ssr[Math.floor(Math.random() * this.props.ssr.length)]
-      // console.log(result)
+      if (output <= 80) {
+        result = filteredR[Math.floor(Math.random() * filteredR.length)]
+      } else if (output <= 94) {
+        result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+      } else {
+        result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+      }
     }
+
 
     this.props.changeResult([result])
     this.props.changeCrystals(this.props.crystals - 300)
@@ -72,27 +83,52 @@ class PickSummon extends React.Component {
 
     for (i = 0; i < 10; i++) {
 
-      if (i == 9) {
-        let output = Math.floor(Math.random() * 100)
+      if (this.state.galaName === "None") {
+        if (i == 9) {
+          let output = Math.floor(Math.random() * 100)
 
-        if (output <= 97) {
-          result = this.props.sr[Math.floor(Math.random() * this.props.sr.length)]
+          if (output <= 97) {
+            result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+          } else {
+            result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+          }
+          allRolls.push(result)
         } else {
-          result = this.props.ssr[Math.floor(Math.random() * this.props.ssr.length)]
+          let output = Math.floor(Math.random() * 100)
+
+          if (output <= 82) {
+            result = filteredR[Math.floor(Math.random() * filteredR.length)]
+          } else if (output <= 97) {
+            result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+          } else {
+            result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+          }
+
+          allRolls.push(result)
         }
-        allRolls.push(result)
       } else {
-        let output = Math.floor(Math.random() * 100)
+        if (i == 9) {
+          let output = Math.floor(Math.random() * 100)
 
-        if (output <= 82) {
-          result = this.props.r[Math.floor(Math.random() * this.props.r.length)]
-        } else if (output <= 97) {
-          result = this.props.sr[Math.floor(Math.random() * this.props.sr.length)]
+          if (output <= 94) {
+            result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+          } else {
+            result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+          }
+          allRolls.push(result)
         } else {
-          result = this.props.ssr[Math.floor(Math.random() * this.props.ssr.length)]
-        }
+          let output = Math.floor(Math.random() * 100)
 
-        allRolls.push(result)
+          if (output <= 80) {
+            result = filteredR[Math.floor(Math.random() * filteredR.length)]
+          } else if (output <= 94) {
+            result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+          } else {
+            result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+          }
+
+          allRolls.push(result)
+        }
       }
     }
 
