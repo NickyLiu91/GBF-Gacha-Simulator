@@ -52,7 +52,7 @@ class PickSummon extends React.Component {
         result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
       }
     } else {
-      if (output <= 80) {
+      if (output <= 79) {
         result = filteredR[Math.floor(Math.random() * filteredR.length)]
       } else if (output <= 94) {
         result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
@@ -119,7 +119,7 @@ class PickSummon extends React.Component {
         } else {
           let output = Math.floor(Math.random() * 100)
 
-          if (output <= 80) {
+          if (output <= 79) {
             result = filteredR[Math.floor(Math.random() * filteredR.length)]
           } else if (output <= 94) {
             result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
