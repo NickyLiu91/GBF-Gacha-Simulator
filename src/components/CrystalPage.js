@@ -6,6 +6,8 @@ const CrystalPage = (props) => {
     return (
       <div id="crystal-page">
         <div id="summon-area">
+          <div id="background-glow">
+          </div>
           <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
             <img id="blue-summon-crystal" src="images/SSR Crystal.png" />
           </div>
@@ -19,6 +21,8 @@ const CrystalPage = (props) => {
       return (
         <div id="crystal-page">
           <div id="summon-area">
+            <div id="background-glow">
+            </div>
             <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
               <img src="images/SSR Crystal.png" />
             </div>
@@ -29,6 +33,8 @@ const CrystalPage = (props) => {
       return (
         <div id="crystal-page">
           <div id="summon-area">
+            <div id="background-glow">
+            </div>
             <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
               <img src="images/SR Crystal.png" />
             </div>
@@ -40,6 +46,8 @@ const CrystalPage = (props) => {
     return (
       <div id="crystal-page">
         <div id="summon-area">
+          <div id="background-glow">
+          </div>
           <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
             <img src="images/SR Crystal.png" />
           </div>
