@@ -189,6 +189,7 @@ class PickSummon extends React.Component {
       // })
     }
   }
+
   changeEventName = (event) => {
     event.preventDefault()
     this.setState({
@@ -202,6 +203,7 @@ class PickSummon extends React.Component {
       galaName: event.target.value
     })
   }
+
 
   render () {
     if (this.props.display === "PickSummon") {

@@ -13,6 +13,9 @@ const WeaponPage = (props) => {
           <div id="weapon-name">
             <p>{props.result[props.rollNumber].weapon}</p>
           </div>
+          <br/>
+          <br/>
+          <button onClick={() => {props.changeDisplay("ResultPage")}}>SKIP</button>
         </div>
       </div>
     )
@@ -27,11 +30,15 @@ const WeaponPage = (props) => {
           <div id="non-char-name">
             <p>{props.result[props.rollNumber].weapon}</p>
           </div>
+          <br/>
+          <br/>
+          <button onClick={() => {props.changeDisplay("ResultPage")}}>SKIP</button>
         </div>
       </div>
     )
   }
 }
+
 
 const mapStateToProps = state => {
   return {
@@ -40,6 +47,13 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    changeDisplay: (event) => dispatch({type: 'CHANGE_DISPLAY', newDisplay: event})
+  }
+}
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(WeaponPage);
