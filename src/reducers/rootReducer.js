@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
 
-function crystalChanger(state = {crystals: 30000}, action) {
+function crystalChanger(state = {crystals: 90000}, action) {
   switch (action.type) {
     case 'CHANGE_CRYSTALS':
       // console.log(state);
