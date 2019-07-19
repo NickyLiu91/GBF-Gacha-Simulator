@@ -37,113 +37,118 @@ class PickSummon extends React.Component {
   }
 
   rollOne = (event) => {
-    let result
-    let output = Math.floor(Math.random() * 100)
-    let filteredR = this.props.r.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
-    let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
-    let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
 
-    if (this.state.galaName === "None") {
-      if (output <= 82) {
-        result = filteredR[Math.floor(Math.random() * filteredR.length)]
-      } else if (output <= 97) {
-        result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+    if (this.props.crystals >= 300) {
+      let result
+      let output = Math.floor(Math.random() * 100)
+      let filteredR = this.props.r.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+      let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+      let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+
+      if (this.state.galaName === "None") {
+        if (output <= 82) {
+          result = filteredR[Math.floor(Math.random() * filteredR.length)]
+        } else if (output <= 97) {
+          result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+        } else {
+          result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+        }
       } else {
-        result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+        if (output <= 79) {
+          result = filteredR[Math.floor(Math.random() * filteredR.length)]
+        } else if (output <= 94) {
+          result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+        } else {
+          result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+        }
       }
+
+      this.props.changeResult([result])
+      this.props.changeCrystals(this.props.crystals - 300)
+      this.props.changeDisplay("CrystalPage")
     } else {
-      if (output <= 79) {
-        result = filteredR[Math.floor(Math.random() * filteredR.length)]
-      } else if (output <= 94) {
-        result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
-      } else {
-        result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
-      }
+      alert('You do not have enough crystals left!')
     }
-
-    this.props.changeResult([result])
-    this.props.changeCrystals(this.props.crystals - 300)
-    this.props.changeDisplay("CrystalPage")
-
   }
 
   rollTen = (event) => {
-    let result
-    let allRolls = []
-    let sortedArray
-    var i
-    let filteredR = this.props.r.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
-    let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
-    let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
 
-    for (i = 0; i < 10; i++) {
+    if (this.props.crystals >= 3000) {
+      let result
+      let allRolls = []
+      let sortedArray
+      var i
+      let filteredR = this.props.r.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+      let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+      let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
 
-      if (this.state.galaName === "None") {
-        if (i == 9) {
-          let output = Math.floor(Math.random() * 100)
+      for (i = 0; i < 10; i++) {
 
-          if (output <= 97) {
-            result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+        if (this.state.galaName === "None") {
+          if (i == 9) {
+            let output = Math.floor(Math.random() * 100)
+
+            if (output <= 97) {
+              result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+            } else {
+              result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+            }
+            allRolls.push(result)
           } else {
-            result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+            let output = Math.floor(Math.random() * 100)
+
+            if (output <= 82) {
+              result = filteredR[Math.floor(Math.random() * filteredR.length)]
+            } else if (output <= 97) {
+              result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+            } else {
+              result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+            }
+
+            allRolls.push(result)
           }
-          allRolls.push(result)
         } else {
-          let output = Math.floor(Math.random() * 100)
+          if (i == 9) {
+            let output = Math.floor(Math.random() * 100)
 
-          if (output <= 82) {
-            result = filteredR[Math.floor(Math.random() * filteredR.length)]
-          } else if (output <= 97) {
-            result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+            if (output <= 94) {
+              result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+            } else {
+              result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+            }
+            allRolls.push(result)
           } else {
-            result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+            let output = Math.floor(Math.random() * 100)
+
+            if (output <= 79) {
+              result = filteredR[Math.floor(Math.random() * filteredR.length)]
+            } else if (output <= 94) {
+              result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
+            } else {
+              result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+            }
+
+            allRolls.push(result)
           }
-
-          allRolls.push(result)
-        }
-      } else {
-        if (i == 9) {
-          let output = Math.floor(Math.random() * 100)
-
-          if (output <= 94) {
-            result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
-          } else {
-            result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
-          }
-          allRolls.push(result)
-        } else {
-          let output = Math.floor(Math.random() * 100)
-
-          if (output <= 79) {
-            result = filteredR[Math.floor(Math.random() * filteredR.length)]
-          } else if (output <= 94) {
-            result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
-          } else {
-            result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
-          }
-
-          allRolls.push(result)
         }
       }
+
+      sortedArray = allRolls.sort((a, b) => {
+        if (a.character != "None" && b.character == "None") {
+          return 1
+        } else if (a.character == "None" && b.character != "None") {
+          return -1
+        } else {
+          return 1
+        }
+      })
+
+      this.props.changeResult(sortedArray)
+      this.props.changeCrystals(this.props.crystals - 3000)
+      this.props.changeDisplay("CrystalPage")
+    } else {
+      alert('You do not have enough crystals left!')
     }
-
-
-    sortedArray = allRolls.sort((a, b) => {
-      if (a.character != "None" && b.character == "None") {
-        return 1
-      } else if (a.character == "None" && b.character != "None") {
-        return -1
-      } else {
-        return 1
-      }
-    })
-
-    console.log(sortedArray)
-
-    this.props.changeResult(sortedArray)
-    this.props.changeCrystals(this.props.crystals - 3000)
-    this.props.changeDisplay("CrystalPage")
-
   }
 
   // summon = () => {
@@ -211,7 +216,7 @@ class PickSummon extends React.Component {
             <div className="event-bar">
             <div>Event:</div>
               <form>
-                <select onChange={this.changeEventName}>
+                <select onChange={this.changeEventName} value={this.state.eventName}>
                   <option value="None" >None</option>
                   <option value="Summer" >Summer</option>
                   <option value="Halloween" >Halloween</option>
@@ -223,7 +228,7 @@ class PickSummon extends React.Component {
             <div className="event-bar">
             <div>Gala:</div>
               <form>
-                <select onChange={this.changeGalaName}>
+                <select onChange={this.changeGalaName} value={this.state.galaName}>
                   <option value="None" >None</option>
                   <option value="Flash" >Flash</option>
                   <option value="Grand" >Grand</option>
