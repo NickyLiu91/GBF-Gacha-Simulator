@@ -76,10 +76,6 @@ class PickSummon extends React.Component {
     let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
     let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
 
-    console.log(filteredR)
-    console.log(filteredSR)
-    console.log(filteredSSR)
-
     for (i = 0; i < 10; i++) {
 
       if (this.state.galaName === "None") {
@@ -204,6 +200,7 @@ class PickSummon extends React.Component {
 
   skip = (event) => {
     this.props.changeDisplay("ResultPage")
+    this.props.changeRollNumber(0)
   }
 
   render () {
