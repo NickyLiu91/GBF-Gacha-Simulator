@@ -248,7 +248,7 @@ class PickSummon extends React.Component {
             <button onClick={event => {this.rollTen(event)}}> 3000 Crystals</button>
           </div>
           <div id="single-summon">
-            <p>Permium Draw</p>
+            <p>Premium Draw</p>
             <div className="banner">
               <img src="images/banner.png" />
               <div>This contains one cerulean spark and at least one R-SSR item!</div>
