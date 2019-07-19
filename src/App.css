@@ -265,30 +265,41 @@ form {
 }
 
 .result-grid-single {
-  height: 150px;
-  width: 200px;
-  /*margin: 5px;*/
+  height: 20vh;
+  width: 30vh;
 }
 
 #results-page {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /*align-items: center;*/
   justify-content: center;
+}
+
+#result-row-1, #result-row-2 {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  /*background-color: red;*/
+  justify-content: space-around;
+  align-items: center;
+
 }
 
 #result-upper-half {
   /*position: fixed;*/
-  width: 70%;
-  height: 40%;
+  width: 85vw;
+  height: 45vh;
   /*top: 0;*/
   background-color: black;
   border: solid gold 5px;
-  text-align: center;
+  /*text-align: center;*/
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-around;
+  /*flex-wrap: wrap;*/
+  /*justify-content: space-around;*/
   /*display: flex;
   justify-content: center;
   align-items: center;*/

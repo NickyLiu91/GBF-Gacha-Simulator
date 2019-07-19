@@ -7,9 +7,16 @@ const ResultPage = (props) => {
   return (
     <div id="results-page" >
       <div id="result-upper-half">
-        {props.result.map((item, index) => {
+      <div id="result-row-1">
+        {props.result.slice(0, 5).map((item, index) => {
           return (<ResultGrid key={index} item={item}/>)
         })}
+      </div>
+      <div id="result-row-2">
+        {props.result.slice(5).map((item, index) => {
+          return (<ResultGrid key={index} item={item}/>)
+        })}
+      </div>
       </div>
       <div id="button-container">
         <button className="bar-button" onClick={event => {props.rollTen(event)}}>Draw Again</button>
