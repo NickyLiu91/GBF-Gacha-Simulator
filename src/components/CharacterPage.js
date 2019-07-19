@@ -10,10 +10,8 @@ const CharacterPage = (props) => {
         <div id="character-name">
           <p>{props.result[props.rollNumber].character}</p>
         </div>
-        <br/>
-        <br/>
-        <button onClick={() => {props.changeDisplay("ResultPage")}}>SKIP</button>
       </div>
+      <button onClick={event => {props.skip(event)}}>Skip</button>
     </div>
   )
 }
@@ -27,13 +25,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    changeDisplay: (event) => dispatch({type: 'CHANGE_DISPLAY', newDisplay: event})
-  }
-}
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(CharacterPage);

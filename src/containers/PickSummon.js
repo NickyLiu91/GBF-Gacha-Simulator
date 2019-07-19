@@ -61,7 +61,6 @@ class PickSummon extends React.Component {
       }
     }
 
-
     this.props.changeResult([result])
     this.props.changeCrystals(this.props.crystals - 300)
     this.props.changeDisplay("CrystalPage")
@@ -165,7 +164,6 @@ class PickSummon extends React.Component {
     // })
   }
 
-
   nextRoll = () => {
     if (this.props.rollNumber === this.props.result.length - 1) {
       if (this.props.result.length === 1) {
@@ -204,6 +202,9 @@ class PickSummon extends React.Component {
     })
   }
 
+  skip = (event) => {
+    this.props.changeDisplay("ResultPage")
+  }
 
   render () {
     if (this.props.display === "PickSummon") {
@@ -267,11 +268,11 @@ class PickSummon extends React.Component {
       )
     } else if (this.props.display === "WeaponPage") {
       return(
-        <WeaponPage getCharacters={this.getCharacters} nextRoll={this.nextRoll}/>
+        <WeaponPage getCharacters={this.getCharacters} nextRoll={this.nextRoll} skip={this.skip}/>
       )
     } else if (this.props.display === "CharacterPage") {
       return(
-        <CharacterPage nextRoll={this.nextRoll} />
+        <CharacterPage nextRoll={this.nextRoll} skip={this.skip}/>
       )
     } else if (this.props.display === "ResultPage") {
       return(
