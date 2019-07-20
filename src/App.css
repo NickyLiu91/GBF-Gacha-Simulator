@@ -20,7 +20,7 @@ form {
   justify-content: center;
   align-items: center;
   background-color: AntiqueWhite;
-  height: 5vh;
+  min-height: 5vh;
   width: 80vw;
   border-left: solid gold 5px;
   border-right: solid gold 5px;

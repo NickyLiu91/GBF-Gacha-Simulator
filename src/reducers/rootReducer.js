@@ -73,15 +73,15 @@ function ssrChanger(state = {ssr: []}, action) {
   }
 }
 
-// function eventChanger(state = {filter: []}, action) {
-//   switch (action.type) {
-//     case 'CHANGE_FILTER':
-//       console.log(state);
-//       return {ssr: action.filter}
-//     default:
-//       return state;
-//   }
-// }
+function ssrCollectionChanger(state = {ssrCollection: []}, action) {
+  switch (action.type) {
+    case 'CHANGE_SSRCOLLECTION':
+      // console.log(state);
+      return {ssrCollection: action.newSSRCollection}
+    default:
+      return state;
+  }
+}
 
 export default combineReducers({
   crystalChanger,
@@ -91,5 +91,5 @@ export default combineReducers({
   rChanger,
   srChanger,
   ssrChanger,
-  // filterChanger
+  ssrCollectionChanger
 })

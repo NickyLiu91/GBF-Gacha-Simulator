@@ -44,6 +44,7 @@ class PickSummon extends React.Component {
       let filteredR = this.props.r.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
       let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
       let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+      let updatedSSRCollection = this.props.ssrCollection
 
       if (this.state.galaName === "None") {
         if (output <= 82) {
@@ -52,6 +53,9 @@ class PickSummon extends React.Component {
           result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
         } else {
           result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+          updatedSSRCollection.push(result)
+          this.props.changeSSRCollection(updatedSSRCollection)
+          console.log(updatedSSRCollection)
         }
       } else {
         if (output <= 79) {
@@ -60,6 +64,9 @@ class PickSummon extends React.Component {
           result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
         } else {
           result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+          updatedSSRCollection.push(result)
+          this.props.changeSSRCollection(updatedSSRCollection)
+          console.log(updatedSSRCollection)
         }
       }
 
@@ -81,6 +88,8 @@ class PickSummon extends React.Component {
       let filteredR = this.props.r.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
       let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
       let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+      let updatedSSRCollection = this.props.ssrCollection
+      console.log(updatedSSRCollection)
 
       for (i = 0; i < 10; i++) {
 
@@ -92,6 +101,9 @@ class PickSummon extends React.Component {
               result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
             } else {
               result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+              updatedSSRCollection.push(result)
+              this.props.changeSSRCollection(updatedSSRCollection)
+              console.log(updatedSSRCollection)
             }
             allRolls.push(result)
           } else {
@@ -103,6 +115,9 @@ class PickSummon extends React.Component {
               result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
             } else {
               result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+              updatedSSRCollection.push(result)
+              this.props.changeSSRCollection(updatedSSRCollection)
+              console.log(updatedSSRCollection)
             }
 
             allRolls.push(result)
@@ -115,6 +130,9 @@ class PickSummon extends React.Component {
               result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
             } else {
               result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+              updatedSSRCollection.push(result)
+              this.props.changeSSRCollection(updatedSSRCollection)
+              console.log(updatedSSRCollection)
             }
             allRolls.push(result)
           } else {
@@ -126,6 +144,9 @@ class PickSummon extends React.Component {
               result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
             } else {
               result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+              updatedSSRCollection.push(result)
+              this.props.changeSSRCollection(updatedSSRCollection)
+              console.log(updatedSSRCollection)
             }
 
             allRolls.push(result)
@@ -151,13 +172,6 @@ class PickSummon extends React.Component {
     }
   }
 
-  // summon = () => {
-  //   this.setState({
-  //     display: "CrystalPage"
-  //   })
-  // }
-  //
-  //
   getCharacters = () => {
     this.props.changeDisplay("CharacterPage")
     // this.setState({
@@ -292,8 +306,8 @@ const mapStateToProps = state => {
     rollNumber: state.rollNumberChanger.rollNumber,
     r: state.rChanger.r,
     sr: state.srChanger.sr,
-    ssr: state.ssrChanger.ssr
-    // filter: state.filterChanger.filter
+    ssr: state.ssrChanger.ssr,
+    ssrCollection: state.ssrCollectionChanger.ssrCollection
   }
 }
 
@@ -305,8 +319,8 @@ const mapDispatchToProps = dispatch => {
     changeRollNumber: (event) => dispatch({type: 'CHANGE_ROLL_NUMBER', newRollNumber: event}),
     changeR: (event) => dispatch({type: 'CHANGE_R', newR: event}),
     changeSR: (event) => dispatch({type: 'CHANGE_SR', newSR: event}),
-    changeSSR: (event) => dispatch({type: 'CHANGE_SSR', newSSR: event})
-    // changeFilter: (event) => dispatch({type: 'CHANGE_FILTER', filter: event})
+    changeSSR: (event) => dispatch({type: 'CHANGE_SSR', newSSR: event}),
+    changeSSRCollection: (event) => dispatch({type: 'CHANGE_SSRCOLLECTION', newSSRCollection: event})
   }
 }
 
