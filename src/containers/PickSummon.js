@@ -2,6 +2,7 @@ import React from "react"
 import CrystalPage from '../components/CrystalPage'
 import WeaponPage from '../components/WeaponPage'
 import CharacterPage from '../components/CharacterPage'
+import Tracker from '../components/Tracker'
 import ResultPage from './ResultPage'
 import {connect} from 'react-redux';
 
@@ -225,74 +226,89 @@ class PickSummon extends React.Component {
   render () {
     if (this.props.display === "PickSummon") {
       return(
-        <div id="summon-page">
-          <div id="event">
-            <div className="event-bar">
-            <div>Event:</div>
-              <form>
-                <select onChange={this.changeEventName} value={this.state.eventName}>
-                  <option value="None" >None</option>
-                  <option value="Summer" >Summer</option>
-                  <option value="Halloween" >Halloween</option>
-                  <option value="Holiday" >Holiday</option>
-                  <option value="Valentine" >Valentine</option>
-                </select>
-              </form>
+        <div id="page">
+          <div id="summon-page">
+            <div id="event">
+              <div className="event-bar">
+              <div>Event:</div>
+                <form>
+                  <select onChange={this.changeEventName} value={this.state.eventName}>
+                    <option value="None" >None</option>
+                    <option value="Summer" >Summer</option>
+                    <option value="Halloween" >Halloween</option>
+                    <option value="Holiday" >Holiday</option>
+                    <option value="Valentine" >Valentine</option>
+                  </select>
+                </form>
+              </div>
+              <div className="event-bar">
+              <div>Gala:</div>
+                <form>
+                  <select onChange={this.changeGalaName} value={this.state.galaName}>
+                    <option value="None" >None</option>
+                    <option value="Flash" >Flash</option>
+                    <option value="Grand" >Grand</option>
+                  </select>
+                </form>
+              </div>
             </div>
-            <div className="event-bar">
-            <div>Gala:</div>
-              <form>
-                <select onChange={this.changeGalaName} value={this.state.galaName}>
-                  <option value="None" >None</option>
-                  <option value="Flash" >Flash</option>
-                  <option value="Grand" >Grand</option>
-                </select>
-              </form>
+            <div id="ten-summon">
+              <p>Premium 10-Part Draw</p>
+              <div className="banner">
+                <img src="images/banner.png" />
+                <div>This contains ten cerulean sparks and at least one SR/SSR item!</div>
+              </div>
+              <br/>
+              <p>{this.props.crystals}</p>
+              <br/>
+              <img src="" />
+              <br/>
+              <button onClick={event => {this.rollTen(event)}}> 3000 Crystals</button>
+            </div>
+            <div id="single-summon">
+              <p>Premium Draw</p>
+              <div className="banner">
+                <img src="images/banner.png" />
+                <div>This contains one cerulean spark and at least one R-SSR item!</div>
+              </div>
+              <br/>
+              <p>{this.props.crystals}</p>
+              <br/>
+              <img src="" />
+              <br/>
+              <button onClick={event => {this.rollOne(event)}}> 300 Crystals</button>
             </div>
           </div>
-          <div id="ten-summon">
-            <p>Premium 10-Part Draw</p>
-            <div className="banner">
-              <img src="images/banner.png" />
-              <div>This contains ten cerulean sparks and at least one SR/SSR item!</div>
-            </div>
-            <br/>
-            <p>{this.props.crystals}</p>
-            <br/>
-            <img src="" />
-            <br/>
-            <button onClick={event => {this.rollTen(event)}}> 3000 Crystals</button>
-          </div>
-          <div id="single-summon">
-            <p>Premium Draw</p>
-            <div className="banner">
-              <img src="images/banner.png" />
-              <div>This contains one cerulean spark and at least one R-SSR item!</div>
-            </div>
-            <br/>
-            <p>{this.props.crystals}</p>
-            <br/>
-            <img src="" />
-            <br/>
-            <button onClick={event => {this.rollOne(event)}}> 300 Crystals</button>
-          </div>
+          <Tracker />
         </div>
       )
     } else if (this.props.display === "CrystalPage") {
       return(
-        <CrystalPage  />
+        <div id="page">
+          <CrystalPage  />
+          <Tracker />
+        </div>
       )
     } else if (this.props.display === "WeaponPage") {
       return(
-        <WeaponPage getCharacters={this.getCharacters} nextRoll={this.nextRoll} skip={this.skip}/>
+        <div id="page">
+          <WeaponPage getCharacters={this.getCharacters} nextRoll={this.nextRoll} skip={this.skip}/>
+          <Tracker />
+        </div>
       )
     } else if (this.props.display === "CharacterPage") {
       return(
-        <CharacterPage nextRoll={this.nextRoll} skip={this.skip}/>
+        <div id="page">
+          <CharacterPage nextRoll={this.nextRoll} skip={this.skip}/>
+          <Tracker />
+        </div>
       )
     } else if (this.props.display === "ResultPage") {
       return(
-        <ResultPage rollTen={this.rollTen}/>
+        <div id="page">
+          <ResultPage rollTen={this.rollTen}/>
+          <Tracker />
+        </div>
       )
     }
   }

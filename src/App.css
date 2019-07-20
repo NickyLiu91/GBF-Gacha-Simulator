@@ -1,8 +1,8 @@
 #summon-page {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  /*flex-wrap: wrap;*/
+  /*justify-content: center;*/
 }
 
 form {
@@ -352,6 +352,16 @@ button {
   font-size: 20px;
 }
 
+#tracker {
+  background-color: white;
+  width: 500px;
+}
+
+#page {
+  display: flex;
+  /*justify-content: center;*/
+  /*margin: 5px;*/
+}
 
 /*button {
   background-color: blue;
