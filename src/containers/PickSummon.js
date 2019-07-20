@@ -2,8 +2,8 @@ import React from "react"
 import CrystalPage from '../components/CrystalPage'
 import WeaponPage from '../components/WeaponPage'
 import CharacterPage from '../components/CharacterPage'
-import Tracker from '../components/Tracker'
 import ResultPage from './ResultPage'
+import Tracker from './Tracker'
 import {connect} from 'react-redux';
 
 class PickSummon extends React.Component {
@@ -223,6 +223,23 @@ class PickSummon extends React.Component {
     this.props.changeRollNumber(0)
   }
 
+  generateNoDupesSSRCollection = () => {
+    let noDuplicatesCollection = []
+
+    this.props.ssrCollection.map(item => {
+      if (!noDuplicatesCollection.includes(item.weapon)) {
+        noDuplicatesCollection.push(item)
+      }
+    })
+
+    noDuplicatesCollection.map(item => {
+      item.quantity = this.props.ssrCollection.filter(item2 => item2.name === item.name).length;
+      return item
+    })
+
+    return noDuplicatesCollection
+  }
+
   render () {
     if (this.props.display === "PickSummon") {
       return(
@@ -279,35 +296,35 @@ class PickSummon extends React.Component {
               <button onClick={event => {this.rollOne(event)}}> 300 Crystals</button>
             </div>
           </div>
-          <Tracker />
+          <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
         </div>
       )
     } else if (this.props.display === "CrystalPage") {
       return(
         <div id="page">
           <CrystalPage  />
-          <Tracker />
+          <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
         </div>
       )
     } else if (this.props.display === "WeaponPage") {
       return(
         <div id="page">
           <WeaponPage getCharacters={this.getCharacters} nextRoll={this.nextRoll} skip={this.skip}/>
-          <Tracker />
+          <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
         </div>
       )
     } else if (this.props.display === "CharacterPage") {
       return(
         <div id="page">
           <CharacterPage nextRoll={this.nextRoll} skip={this.skip}/>
-          <Tracker />
+          <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
         </div>
       )
     } else if (this.props.display === "ResultPage") {
       return(
         <div id="page">
           <ResultPage rollTen={this.rollTen}/>
-          <Tracker />
+          <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
         </div>
       )
     }
