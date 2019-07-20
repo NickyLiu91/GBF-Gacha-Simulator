@@ -10,7 +10,8 @@ class PickSummon extends React.Component {
 
   state = {
     eventName: "None",
-    galaName: "None"
+    galaName: "None",
+    skip: false
   }
 
   componentDidMount() {
@@ -167,7 +168,12 @@ class PickSummon extends React.Component {
 
       this.props.changeResult(sortedArray)
       this.props.changeCrystals(this.props.crystals - 3000)
-      this.props.changeDisplay("CrystalPage")
+
+      if (this.state.skip) {
+        this.skip()
+      } else {
+        this.props.changeDisplay("CrystalPage")
+      }
     } else {
       alert('You do not have enough crystals left!')
     }
@@ -232,16 +238,18 @@ class PickSummon extends React.Component {
       }
     })
 
-    console.log(noDuplicatesCollection)
-
     noDuplicatesCollection.map(item => {
       item.quantity = this.props.ssrCollection.filter(item2 => item2.weapon === item.weapon).length;
       return item
     })
 
-    console.log(noDuplicatesCollection)
-
     return noDuplicatesCollection
+  }
+
+  changeChecked = () => {
+    this.setState({
+      skip: !this.state.skip
+    })
   }
 
   render () {
@@ -270,6 +278,13 @@ class PickSummon extends React.Component {
                     <option value="Flash" >Flash</option>
                     <option value="Grand" >Grand</option>
                   </select>
+                </form>
+              </div>
+              <div className="event-bar">
+              <div>Skip:</div>
+                <form>
+                  <input type="checkbox" onChange={this.changeChecked} checked={this.state.skip}>
+                  </input>
                 </form>
               </div>
             </div>
