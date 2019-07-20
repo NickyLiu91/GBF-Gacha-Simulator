@@ -227,15 +227,19 @@ class PickSummon extends React.Component {
     let noDuplicatesCollection = []
 
     this.props.ssrCollection.map(item => {
-      if (!noDuplicatesCollection.includes(item.weapon)) {
+      if (noDuplicatesCollection.filter(item2 => item2.weapon == item.weapon).length == 0) {
         noDuplicatesCollection.push(item)
       }
     })
 
+    console.log(noDuplicatesCollection)
+
     noDuplicatesCollection.map(item => {
-      item.quantity = this.props.ssrCollection.filter(item2 => item2.name === item.name).length;
+      item.quantity = this.props.ssrCollection.filter(item2 => item2.weapon === item.weapon).length;
       return item
     })
+
+    console.log(noDuplicatesCollection)
 
     return noDuplicatesCollection
   }
