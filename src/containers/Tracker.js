@@ -5,10 +5,13 @@ import TrackerSingle from "../components/TrackerSingle"
 class Tracker extends React.Component {
   render (){
     return (
-      <div id="tracker">
-      {this.props.ssrCollection.map((item, index) => {
-        return (<TrackerSingle key={index} item={item}/>)
-      })}
+      <div>
+        <ul id="tracker">
+        <h1 id="list-title">SSR Loot</h1>
+        {this.props.ssrCollection.map((item, index) => {
+          return (<TrackerSingle key={index} item={item}/>)
+        })}
+        </ul>
       </div>
     )
   }
