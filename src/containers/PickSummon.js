@@ -19,8 +19,8 @@ class PickSummon extends React.Component {
     let superRare = []
     let superSuperRare = []
     fetch(`http://localhost:3000/api/summons`)
-    .then(res => res.json())
-    .then(res => {console.log(res)})
+    // .then(res => res.json())
+    .then(res => {console.log("hi")})
     // .then(json => {
     //   json.forEach((obj) => {
     //     if (obj.rarity === "R") {
