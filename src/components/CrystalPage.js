@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from 'react-redux';
 
 const CrystalPage = (props) => {
+  console.log(props)
   if (props.result.filter(object => object.rarity == "R").length == props.result.length) {
     return (
       <div id="crystal-page">
