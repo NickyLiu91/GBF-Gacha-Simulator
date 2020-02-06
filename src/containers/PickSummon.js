@@ -18,24 +18,25 @@ class PickSummon extends React.Component {
     let rare = []
     let superRare = []
     let superSuperRare = []
-    fetch(`http://localhost:3000/api/v1/summons`)
+    fetch(`http://localhost:3000/api/summons`)
     .then(res => res.json())
-    .then(json => {
-      json.forEach((obj) => {
-        if (obj.rarity === "R") {
-          rare.push(obj)
-        } else if (obj.rarity === "SR") {
-          superRare.push(obj)
-        } else {
-          superSuperRare.push(obj)
-        }
-      })
-    })
-    .then(res => {
-      this.props.changeR(rare)
-      this.props.changeSR(superRare)
-      this.props.changeSSR(superSuperRare)
-    })
+    .then(res => {console.log(res)})
+    // .then(json => {
+    //   json.forEach((obj) => {
+    //     if (obj.rarity === "R") {
+    //       rare.push(obj)
+    //     } else if (obj.rarity === "SR") {
+    //       superRare.push(obj)
+    //     } else {
+    //       superSuperRare.push(obj)
+    //     }
+    //   })
+    // })
+    // .then(res => {
+    //   this.props.changeR(rare)
+    //   this.props.changeSR(superRare)
+    //   this.props.changeSSR(superSuperRare)
+    // })
   }
 
   rollOne = (event) => {

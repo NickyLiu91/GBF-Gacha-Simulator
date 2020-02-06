@@ -14,7 +14,6 @@ const TrackerSingle = (props) => {
       </div>
     )
   }
-
 }
 
 export default TrackerSingle;
