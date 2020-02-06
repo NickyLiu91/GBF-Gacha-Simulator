@@ -19,24 +19,24 @@ class PickSummon extends React.Component {
     let superRare = []
     let superSuperRare = []
     fetch(`http://localhost:3000/api/summons`)
-    // .then(res => res.json())
-    .then(res => {console.log("hi")})
-    // .then(json => {
-    //   json.forEach((obj) => {
-    //     if (obj.rarity === "R") {
-    //       rare.push(obj)
-    //     } else if (obj.rarity === "SR") {
-    //       superRare.push(obj)
-    //     } else {
-    //       superSuperRare.push(obj)
-    //     }
-    //   })
-    // })
-    // .then(res => {
-    //   this.props.changeR(rare)
-    //   this.props.changeSR(superRare)
-    //   this.props.changeSSR(superSuperRare)
-    // })
+    .then(res => res.json())
+    .then(res => {console.log(res[0])})
+    .then(json => {
+      json.forEach((obj) => {
+        if (obj.rarity === "R") {
+          rare.push(obj)
+        } else if (obj.rarity === "SR") {
+          superRare.push(obj)
+        } else {
+          superSuperRare.push(obj)
+        }
+      })
+    })
+    .then(res => {
+      this.props.changeR(rare)
+      this.props.changeSR(superRare)
+      this.props.changeSSR(superSuperRare)
+    })
   }
 
   rollOne = (event) => {
@@ -44,9 +44,9 @@ class PickSummon extends React.Component {
     if (this.props.crystals >= 300) {
       let result
       let output = Math.floor(Math.random() * 100)
-      let filteredR = this.props.r.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
-      let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
-      let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+      let filteredR = this.props.r.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
+      let filteredSR = this.props.sr.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
+      let filteredSSR = this.props.ssr.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
       let updatedSSRCollection = this.props.ssrCollection
 
       if (this.state.galaName === "None") {
@@ -88,9 +88,9 @@ class PickSummon extends React.Component {
       let allRolls = []
       let sortedArray
       var i
-      let filteredR = this.props.r.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
-      let filteredSR = this.props.sr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
-      let filteredSSR = this.props.ssr.filter(object => object.event == "None" || object.event == this.state.eventName || object.event == this.state.galaName)
+      let filteredR = this.props.r.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
+      let filteredSR = this.props.sr.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
+      let filteredSSR = this.props.ssr.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
       let updatedSSRCollection = this.props.ssrCollection
       console.log(updatedSSRCollection)
 
