@@ -345,8 +345,7 @@ class PickSummon extends React.Component {
     } else if (this.props.display === "ResultPage") {
       return(
         <div id="page">
-          <ResultPage rollTen={this.rollTen}/>
-          <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
+          <ResultPage rollTen={this.rollTen} ssrCollection={this.generateNoDupesSSRCollection()}/>
         </div>
       )
     }
