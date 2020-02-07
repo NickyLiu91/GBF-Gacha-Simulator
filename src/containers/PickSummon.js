@@ -192,9 +192,6 @@ class PickSummon extends React.Component {
 
   getCharacters = () => {
     this.props.changeDisplay("CharacterPage")
-    // this.setState({
-    //   display: "CharacterPage"
-    // })
   }
 
   nextRoll = () => {
@@ -206,18 +203,10 @@ class PickSummon extends React.Component {
         this.props.changeRollNumber(0)
       }
 
-      // this.setState({
-      //   display: "PickSummon",
-      //   rollNumber: 0
-      // })
     } else {
       this.props.changeRollNumber(this.props.rollNumber + 1)
       console.log(this.props.rollNumber)
       this.props.changeDisplay("WeaponPage")
-      // this.setState({
-      //   rollNumber: this.props.rollNumber + 1,
-      //   display: "WeaponPage"
-      // })
     }
   }
 

@@ -1,81 +1,116 @@
 import React from "react";
 import {connect} from 'react-redux';
 import Tracker from '../containers/Tracker'
+import {Route, Link, withRouter} from 'react-router-dom';
+import {compose} from 'redux';
 
-const WeaponPage = (props) => {
-  if (props.result.length == 1) {
-    if (props.result[props.rollNumber].character !== 'None') {
-      return (
-        <div id="page">
-          <div id="weapon-page">
-            <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
-            <div>
-            </div>
-              <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
-              <br/>
-              <div id="weapon-name">
-                <p>{props.result[props.rollNumber].weapon}</p>
-              </div>
-            </div>
-          </div>
-          <Tracker ssrCollection={props.ssrCollection}/>
-        </div>
-      )
+class WeaponPage extends React.Component {
+
+  nextRoll = () => {
+    if (this.props.rollNumber === this.props.result.length - 1) {
+      if (this.props.result.length === 1) {
+        this.props.changeDisplay("PickSummon")
+        this.props.history.push("/summon")
+      } else {
+        this.props.changeDisplay("ResultPage")
+        this.props.history.push("/result")
+        this.props.changeRollNumber(0)
+      }
+
     } else {
-      return (
-        <div id="page">
-          <div id="weapon-page">
-            <div id="non-char-area" onClick={event => {props.nextRoll(event)}}>
-            <div>
-            </div>
-              <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
-              <br/>
-              <div id="non-char-name">
-                <p>{props.result[props.rollNumber].weapon}</p>
-              </div>
-            </div>
-          </div>
-          <Tracker ssrCollection={props.ssrCollection}/>
-        </div>
-      )
+      this.props.changeRollNumber(this.props.rollNumber + 1)
+      console.log(this.props.rollNumber)
+      this.props.changeDisplay("WeaponPage")
+      this.props.history.push("/weapon")
     }
-  } else {
-    if (props.result[props.rollNumber].character !== 'None') {
-      return (
-        <div id="page">
-          <div id="weapon-page">
-            <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
-            <div>
-            </div>
-              <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
-              <br/>
-              <div id="weapon-name">
-                <p>{props.result[props.rollNumber].weapon}</p>
+  }
+
+  getCharacters = () => {
+    this.props.changeDisplay("CharacterPage")
+    this.props.history.push("/character")
+  }
+
+  skip = (event) => {
+    this.props.changeDisplay("ResultPage")
+    this.props.history.push("/result")
+    this.props.changeRollNumber(0)
+  }
+
+  render() {
+    if (this.props.result.length == 1) {
+      if (this.props.result[this.props.rollNumber].character !== 'None') {
+        return (
+          <div id="page">
+            <div id="weapon-page">
+              <div id="weapon-area" onClick={event => {this.getCharacters(event)}}>
+              <div>
+              </div>
+                <img className="weapon" src={ "images/" + this.props.result[this.props.rollNumber].weapon + ".png"}/>
+                <br/>
+                <div id="weapon-name">
+                  <p>{this.props.result[this.props.rollNumber].weapon}</p>
+                </div>
               </div>
             </div>
-            <button onClick={event => {props.skip(event)}}>Skip</button>
+            <Tracker ssrCollection={this.props.ssrCollection}/>
           </div>
-          <Tracker ssrCollection={props.ssrCollection}/>
-        </div>
-      )
+        )
+      } else {
+        return (
+          <div id="page">
+            <div id="weapon-page">
+              <div id="non-char-area" onClick={event => {this.nextRoll(event)}}>
+              <div>
+              </div>
+                <img className="weapon" src={ "images/" + this.props.result[this.props.rollNumber].weapon + ".png"}/>
+                <br/>
+                <div id="non-char-name">
+                  <p>{this.props.result[this.props.rollNumber].weapon}</p>
+                </div>
+              </div>
+            </div>
+            <Tracker ssrCollection={this.props.ssrCollection}/>
+          </div>
+        )
+      }
     } else {
-      return (
-        <div id="page">
-          <div id="weapon-page">
-            <div id="non-char-area" onClick={event => {props.nextRoll(event)}}>
-            <div>
-            </div>
-              <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
-              <br/>
-              <div id="non-char-name">
-                <p>{props.result[props.rollNumber].weapon}</p>
+      if (this.props.result[this.props.rollNumber].character !== 'None') {
+        return (
+          <div id="page">
+            <div id="weapon-page">
+              <div id="weapon-area" onClick={event => {this.getCharacters(event)}}>
+              <div>
               </div>
+                <img className="weapon" src={ "images/" + this.props.result[this.props.rollNumber].weapon + ".png"}/>
+                <br/>
+                <div id="weapon-name">
+                  <p>{this.props.result[this.props.rollNumber].weapon}</p>
+                </div>
+              </div>
+              <button onClick={event => {this.props.skip(event)}}>Skip</button>
             </div>
-            <button onClick={event => {props.skip(event)}}>Skip</button>
+            <Tracker ssrCollection={this.props.ssrCollection}/>
           </div>
-          <Tracker ssrCollection={props.ssrCollection}/>
-        </div>
-      )
+        )
+      } else {
+        return (
+          <div id="page">
+            <div id="weapon-page">
+              <div id="non-char-area" onClick={event => {this.nextRoll(event)}}>
+              <div>
+              </div>
+                <img className="weapon" src={ "images/" + this.props.result[this.props.rollNumber].weapon + ".png"}/>
+                <br/>
+                <div id="non-char-name">
+                  <p>{this.props.result[this.props.rollNumber].weapon}</p>
+                </div>
+              </div>
+              <button onClick={event => {this.props.skip(event)}}>Skip</button>
+            </div>
+            <Tracker ssrCollection={this.props.ssrCollection}/>
+          </div>
+        )
+      }
     }
   }
 }
@@ -94,6 +129,8 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(
-  mapStateToProps
+export default compose(
+  withRouter,
+  connect(mapStateToProps,
+  mapDispatchToProps)
 )(WeaponPage);
