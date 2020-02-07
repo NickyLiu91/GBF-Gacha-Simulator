@@ -1,6 +1,6 @@
 import React from "react";
 import TrackerSingle from "../components/TrackerSingle"
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 
 class Tracker extends React.Component {
   render (){
@@ -17,14 +17,14 @@ class Tracker extends React.Component {
   }
 }
 
-export default Tracker;
+// export default Tracker;
 
-// const mapStateToProps = state => {
-//   return {
-//     ssrCollection: state.ssrCollectionChanger.ssrCollection
-//   }
-// }
-//
-// export default connect(
-//   mapStateToProps
-// )(Tracker);
+const mapStateToProps = state => {
+  return {
+    ssrCollection: state.ssrCollectionChanger.ssrCollection
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(Tracker);
