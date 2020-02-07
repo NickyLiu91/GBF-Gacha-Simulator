@@ -15,15 +15,15 @@ class ResultPage extends React.Component {
       let allRolls = []
       let sortedArray
       var i
-      let filteredR = this.props.r.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
-      let filteredSR = this.props.sr.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
-      let filteredSSR = this.props.ssr.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
+      let filteredR = this.props.r.filter(object => object.eventtype == "None" || object.eventtype == this.props.eventType || object.eventtype == this.props.gala)
+      let filteredSR = this.props.sr.filter(object => object.eventtype == "None" || object.eventtype == this.props.eventType || object.eventtype == this.props.gala)
+      let filteredSSR = this.props.ssr.filter(object => object.eventtype == "None" || object.eventtype == this.props.eventType || object.eventtype == this.props.gala)
       let updatedSSRCollection = this.props.ssrCollection
       console.log(updatedSSRCollection)
 
       for (i = 0; i < 10; i++) {
 
-        if (this.state.galaName === "None") {
+        if (this.props.gala === "None") {
           if (i == 9) {
             let output = Math.floor(Math.random() * 100)
 
@@ -102,7 +102,7 @@ class ResultPage extends React.Component {
       this.props.changeResult(sortedArray)
       this.props.changeCrystals(this.props.crystals - 3000)
 
-      if (this.state.skip) {
+      if (this.props.skip) {
         this.skip()
       } else {
         this.props.changeDisplay("CrystalPage")
@@ -111,6 +111,11 @@ class ResultPage extends React.Component {
     } else {
       alert('You do not have enough crystals left!')
     }
+  }
+
+  skip = () => {
+    this.props.changeRollNumber(0)
+    this.props.history.push("/result")
   }
 
   render() {
@@ -147,15 +152,33 @@ class ResultPage extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    eventType: state.eventTypeChanger.eventtype,
+    gala: state.galaChanger.gala,
+    skip: state.skipChanger.skip,
     crystals: state.crystalChanger.crystals,
     result: state.resultChanger.result,
+    display: state.displayChanger.display,
+    rollNumber: state.rollNumberChanger.rollNumber,
+    r: state.rChanger.r,
+    sr: state.srChanger.sr,
+    ssr: state.ssrChanger.ssr,
+    ssrCollection: state.ssrCollectionChanger.ssrCollection
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
+    changeEventType: (event) => dispatch({type: 'CHANGE_EVENTTYPE', newEventType: event}),
+    changeGala: (event) => dispatch({type: 'CHANGE_GALA', newGala: event}),
+    changeSkip: (event) => dispatch({type: 'CHANGE_SKIP', newSkip: event}),
     changeCrystals: (event) => dispatch({type: 'CHANGE_CRYSTALS', newCrystals: event}),
-    changeDisplay: (event) => dispatch({type: 'CHANGE_DISPLAY', newDisplay: event})
+    changeResult: (event) => dispatch({type: 'CHANGE_RESULT', newResult: event}),
+    changeDisplay: (event) => dispatch({type: 'CHANGE_DISPLAY', newDisplay: event}),
+    changeRollNumber: (event) => dispatch({type: 'CHANGE_ROLL_NUMBER', newRollNumber: event}),
+    changeR: (event) => dispatch({type: 'CHANGE_R', newR: event}),
+    changeSR: (event) => dispatch({type: 'CHANGE_SR', newSR: event}),
+    changeSSR: (event) => dispatch({type: 'CHANGE_SSR', newSSR: event}),
+    changeSSRCollection: (event) => dispatch({type: 'CHANGE_SSRCOLLECTION', newSSRCollection: event})
   }
 }
 
