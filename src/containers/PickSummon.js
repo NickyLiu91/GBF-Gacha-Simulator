@@ -5,6 +5,8 @@ import CharacterPage from '../components/CharacterPage'
 import ResultPage from './ResultPage'
 import Tracker from './Tracker'
 import {connect} from 'react-redux';
+import {compose} from 'redux';
+import {Route, Link, withRouter} from 'react-router-dom';
 
 class PickSummon extends React.Component {
 
@@ -81,6 +83,8 @@ class PickSummon extends React.Component {
       this.props.changeResult([result])
       this.props.changeCrystals(this.props.crystals - 300)
       this.props.changeDisplay("CrystalPage")
+      console.log(this.props.ssrCollection)
+      this.props.history.push("/crystal")
     } else {
       alert('You do not have enough crystals left!')
     }
@@ -259,7 +263,7 @@ class PickSummon extends React.Component {
   }
 
   render () {
-    if (this.props.display === "PickSummon") {
+
       return(
         <div id="page">
           <div id="summon-page">
@@ -305,7 +309,7 @@ class PickSummon extends React.Component {
               <br/>
               <img src="" />
               <br/>
-              <button onClick={event => {this.rollTen(event)}}> 3000 Crystals</button>
+              <button onClick={event => {this.rollTen(event)}}> 3000 Crystals </button>
             </div>
             <div id="single-summon">
               <p>Premium Draw</p>
@@ -318,29 +322,12 @@ class PickSummon extends React.Component {
               <br/>
               <img src="" />
               <br/>
-              <button onClick={event => {this.rollOne(event)}}> 300 Crystals</button>
+              <button onClick={event => {this.rollOne(event)}}> 300 Crystals </button>
             </div>
           </div>
           <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
         </div>
       )
-    } else if (this.props.display === "CrystalPage") {
-      return(
-        <CrystalPage  ssrCollection={this.generateNoDupesSSRCollection()}/>
-      )
-    } else if (this.props.display === "WeaponPage") {
-      return(
-        <WeaponPage getCharacters={this.getCharacters} nextRoll={this.nextRoll} skip={this.skip} ssrCollection={this.generateNoDupesSSRCollection()}/>
-      )
-    } else if (this.props.display === "CharacterPage") {
-      return(
-        <CharacterPage nextRoll={this.nextRoll} skip={this.skip} ssrCollection={this.generateNoDupesSSRCollection()}/>
-      )
-    } else if (this.props.display === "ResultPage") {
-      return(
-        <ResultPage rollTen={this.rollTen} ssrCollection={this.generateNoDupesSSRCollection()}/>
-      )
-    }
   }
 }
 
@@ -370,7 +357,8 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  withRouter,
+  connect(mapStateToProps,
+  mapDispatchToProps)
 )(PickSummon);

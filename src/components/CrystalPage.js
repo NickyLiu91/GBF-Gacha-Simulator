@@ -16,7 +16,7 @@ const CrystalPage = (props) => {
             </div>
           </div>
         </div>
-        <Tracker ssrCollection={props.ssrCollection}/>
+        
       </div>
     )
   } else if (props.result.filter(object => object.rarity == "SSR").length > 0) {
@@ -34,7 +34,7 @@ const CrystalPage = (props) => {
               </div>
             </div>
           </div>
-          <Tracker ssrCollection={props.ssrCollection}/>
+          
         </div>
       )
     } else {
@@ -49,7 +49,7 @@ const CrystalPage = (props) => {
               </div>
             </div>
           </div>
-          <Tracker ssrCollection={props.ssrCollection}/>
+          
         </div>
       )
     }
@@ -65,7 +65,7 @@ const CrystalPage = (props) => {
             </div>
           </div>
         </div>
-        <Tracker ssrCollection={props.ssrCollection}/>
+        
       </div>
     )
   }

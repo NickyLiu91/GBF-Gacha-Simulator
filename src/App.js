@@ -8,6 +8,7 @@ import Result from './containers/ResultPage';
 import Character from './components/CharacterPage';
 import Weapon from './components/WeaponPage';
 import Crystal from './components/CrystalPage';
+import Test from './components/Test';
 import {Route, Link, Switch} from 'react-router-dom';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
         <Route path={`/character`} component={Character} />
         <Route path={`/weapon`} component={Weapon} />
         <Route path={`/result`} component={Result} />
+        <Route path={`/test`} component={Test} />
       </Switch>
       </div>
     )
