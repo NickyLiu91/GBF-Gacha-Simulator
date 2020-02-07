@@ -20,7 +20,7 @@ class CharacterPage extends React.Component {
     } else {
       this.props.changeRollNumber(this.props.rollNumber + 1)
       console.log(this.props.rollNumber)
-      this.props.changeDisplay("WeaponPage")
+      // this.props.changeDisplay("WeaponPage")
       this.props.history.push("/weapon")
     }
   }

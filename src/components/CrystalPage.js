@@ -79,14 +79,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    changeDisplay: (event) => dispatch({type: 'CHANGE_DISPLAY', newDisplay: event}),
-  }
-}
-
 export default compose(
   withRouter,
-  connect(mapStateToProps,
-  mapDispatchToProps)
+  connect(mapStateToProps)
 )(CrystalPage);

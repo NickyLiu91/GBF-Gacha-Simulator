@@ -50,17 +50,6 @@ function resultChanger(state = {result: []}, action) {
   }
 }
 
-function displayChanger(state = {display: "PickSummon"}, action) {
-  // console.log(action.newDisplay)
-  switch (action.type) {
-    case 'CHANGE_DISPLAY':
-      // console.log(state);
-      return {display: action.newDisplay}
-    default:
-      return state;
-  }
-}
-
 function rollNumberChanger(state = {rollNumber: 0}, action) {
   switch (action.type) {
     case 'CHANGE_ROLL_NUMBER':
@@ -119,7 +108,6 @@ export default combineReducers({
   skipChanger,
   crystalChanger,
   resultChanger,
-  displayChanger,
   rollNumberChanger,
   rChanger,
   srChanger,

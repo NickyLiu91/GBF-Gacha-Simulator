@@ -105,7 +105,7 @@ class ResultPage extends React.Component {
       if (this.props.skip) {
         this.skip()
       } else {
-        this.props.changeDisplay("CrystalPage")
+        // this.props.changeDisplay("CrystalPage")
         this.props.history.push("/crystal")
       }
     } else {
@@ -157,7 +157,7 @@ const mapStateToProps = state => {
     skip: state.skipChanger.skip,
     crystals: state.crystalChanger.crystals,
     result: state.resultChanger.result,
-    display: state.displayChanger.display,
+    // display: state.displayChanger.display,
     rollNumber: state.rollNumberChanger.rollNumber,
     r: state.rChanger.r,
     sr: state.srChanger.sr,
@@ -173,7 +173,7 @@ const mapDispatchToProps = dispatch => {
     changeSkip: (event) => dispatch({type: 'CHANGE_SKIP', newSkip: event}),
     changeCrystals: (event) => dispatch({type: 'CHANGE_CRYSTALS', newCrystals: event}),
     changeResult: (event) => dispatch({type: 'CHANGE_RESULT', newResult: event}),
-    changeDisplay: (event) => dispatch({type: 'CHANGE_DISPLAY', newDisplay: event}),
+    // changeDisplay: (event) => dispatch({type: 'CHANGE_DISPLAY', newDisplay: event}),
     changeRollNumber: (event) => dispatch({type: 'CHANGE_ROLL_NUMBER', newRollNumber: event}),
     changeR: (event) => dispatch({type: 'CHANGE_R', newR: event}),
     changeSR: (event) => dispatch({type: 'CHANGE_SR', newSR: event}),
