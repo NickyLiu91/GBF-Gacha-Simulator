@@ -11,31 +11,32 @@ class ResultPage extends React.Component {
   state = {
     trackList: []
   }
-  //
-  // componentDidMount() {
-  //   this.generateNoDupesSSRCollection()
-  // }
-  //
-  /generateNoDupesSSRCollection = () => {
+
+  componentDidMount() {
+    this.generateNoDupesSSRCollection()
+  }
+
+  generateNoDupesSSRCollection = () => {
     let noDuplicatesCollection = []
 
     this.props.ssrCollection.map(item => {
       if (noDuplicatesCollection.filter(item2 => item2.weapon == item.weapon).length == 0) {
-        noDuplicatesCollection.push([item, 0])
-      } else {
-        let index = noDuplicatesCollection.findIndex(obj => {
-          obj[0] = item
-        })
-        noDuplicatesCollection[index] = [item, noDuplicatesCollection[index][1] += 1]
+        noDuplicatesCollection.push(item)
       }
     })
 
-    noDuplicatesCollection.map(item => {
+    console.log(noDuplicatesCollection)
+
+    noDuplicatesCollection.forEach(item => {
       item.quantity = this.props.ssrCollection.filter(item2 => item2.weapon === item.weapon).length;
       return item
     })
+    console.log(noDuplicatesCollection)
 
-    // return noDuplicatesCollection
+    // this.setState({
+      // trackList: noDuplicatesCollection
+    // })
+    return noDuplicatesCollection
   }
 
   rollTen = (event) => {
@@ -174,7 +175,7 @@ class ResultPage extends React.Component {
             })}
           </ul>
         </div>
-        <Tracker ssrCollection={this.props.ssrCollection} />
+        <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
       </div>
     )
   }
