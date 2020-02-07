@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
+import Tracker from '../containers/Tracker'
 
 const CrystalPage = (props) => {
   console.log(props)
@@ -13,6 +14,7 @@ const CrystalPage = (props) => {
             <img id="blue-summon-crystal" src="images/SSR Crystal.png" />
           </div>
         </div>
+        <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
       </div>
     )
   } else if (props.result.filter(object => object.rarity == "SSR").length > 0) {
@@ -28,6 +30,7 @@ const CrystalPage = (props) => {
               <img src="images/SSR Crystal.png" />
             </div>
           </div>
+          <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
         </div>
       )
     } else {
@@ -40,6 +43,7 @@ const CrystalPage = (props) => {
               <img src="images/SR Crystal.png" />
             </div>
           </div>
+          <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
         </div>
       )
     }
@@ -53,6 +57,7 @@ const CrystalPage = (props) => {
             <img src="images/SR Crystal.png" />
           </div>
         </div>
+        <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
       </div>
     )
   }

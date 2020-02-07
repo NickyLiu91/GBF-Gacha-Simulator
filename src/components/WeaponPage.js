@@ -1,67 +1,79 @@
 import React from "react";
 import {connect} from 'react-redux';
+import Tracker from '../containers/Tracker'
 
 const WeaponPage = (props) => {
   if (props.result.length == 1) {
     if (props.result[props.rollNumber].character !== 'None') {
       return (
-        <div id="weapon-page">
-          <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
-          <div>
-          </div>
-            <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
-            <br/>
-            <div id="weapon-name">
-              <p>{props.result[props.rollNumber].weapon}</p>
+        <div id="page">
+          <div id="weapon-page">
+            <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
+            <div>
+            </div>
+              <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
+              <br/>
+              <div id="weapon-name">
+                <p>{props.result[props.rollNumber].weapon}</p>
+              </div>
             </div>
           </div>
+          <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
         </div>
       )
     } else {
       return (
-        <div id="weapon-page">
-          <div id="non-char-area" onClick={event => {props.nextRoll(event)}}>
-          <div>
-          </div>
-            <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
-            <br/>
-            <div id="non-char-name">
-              <p>{props.result[props.rollNumber].weapon}</p>
+        <div id="page">
+          <div id="weapon-page">
+            <div id="non-char-area" onClick={event => {props.nextRoll(event)}}>
+            <div>
+            </div>
+              <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
+              <br/>
+              <div id="non-char-name">
+                <p>{props.result[props.rollNumber].weapon}</p>
+              </div>
             </div>
           </div>
+          <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
         </div>
       )
     }
   } else {
-    console.log(props.result)
     if (props.result[props.rollNumber].character !== 'None') {
       return (
-        <div id="weapon-page">
-          <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
-          <div>
-          </div>
-            <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
-            <br/>
-            <div id="weapon-name">
-              <p>{props.result[props.rollNumber].weapon}</p>
+        <div id="page">
+          <div id="weapon-page">
+            <div id="weapon-area" onClick={event => {props.getCharacters(event)}}>
+            <div>
             </div>
+              <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
+              <br/>
+              <div id="weapon-name">
+                <p>{props.result[props.rollNumber].weapon}</p>
+              </div>
+            </div>
+            <button onClick={event => {props.skip(event)}}>Skip</button>
           </div>
-          <button onClick={event => {props.skip(event)}}>Skip</button>
+          <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
         </div>
       )
     } else {
       return (
-        <div id="weapon-page">
-          <div id="non-char-area" onClick={event => {props.nextRoll(event)}}>
-          <div>
-          </div>
-            <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
-            <br/>
-            <div id="non-char-name">
-              <p>{props.result[props.rollNumber].weapon}</p>
+        <div id="page">
+          <div id="weapon-page">
+            <div id="non-char-area" onClick={event => {props.nextRoll(event)}}>
+            <div>
             </div>
+              <img className="weapon" src={ "images/" + props.result[props.rollNumber].weapon + ".png"}/>
+              <br/>
+              <div id="non-char-name">
+                <p>{props.result[props.rollNumber].weapon}</p>
+              </div>
+            </div>
+            <button onClick={event => {props.skip(event)}}>Skip</button>
           </div>
-          <button onClick={event => {props.skip(event)}}>Skip</button>
+          <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
         </div>
       )
     }
