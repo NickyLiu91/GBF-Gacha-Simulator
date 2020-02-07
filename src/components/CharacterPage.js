@@ -44,6 +44,11 @@ class CharacterPage extends React.Component {
     }
   }
 
+  skip = (event) => {
+    this.props.changeRollNumber(0)
+    this.props.history.push("/result")
+  }
+
   render() {
     if (this.props.result.length == 1) {
       return (
@@ -71,7 +76,7 @@ class CharacterPage extends React.Component {
                 <p>{this.props.result[this.props.rollNumber].character}</p>
               </div>
             </div>
-            <button onClick={event => {this.props.skip(event)}}>Skip</button>
+            <button onClick={event => {this.skip(event)}}>Skip</button>
           </div>
           <Tracker ssrCollection={this.props.ssrCollection}/>
         </div>

@@ -87,7 +87,7 @@ class WeaponPage extends React.Component {
                   <p>{this.props.result[this.props.rollNumber].weapon}</p>
                 </div>
               </div>
-              <button onClick={event => {this.props.skip(event)}}>Skip</button>
+              <button onClick={event => {this.skip(event)}}>Skip</button>
             </div>
             <Tracker ssrCollection={this.props.ssrCollection}/>
           </div>
@@ -105,7 +105,7 @@ class WeaponPage extends React.Component {
                   <p>{this.props.result[this.props.rollNumber].weapon}</p>
                 </div>
               </div>
-              <button onClick={event => {this.props.skip(event)}}>Skip</button>
+              <button onClick={event => {this.skip(event)}}>Skip</button>
             </div>
             <Tracker ssrCollection={this.props.ssrCollection}/>
           </div>
@@ -125,7 +125,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeDisplay: (event) => dispatch({type: 'CHANGE_DISPLAY', newDisplay: event})
+    changeRollNumber: (event) => dispatch({type: 'CHANGE_ROLL_NUMBER', newRollNumber: event}),
   }
 }
 
