@@ -107,7 +107,7 @@ class WeaponPage extends React.Component {
               </div>
               <button onClick={event => {this.skip(event)}}>Skip</button>
             </div>
-            <Tracker ssrCollection={this.props.ssrCollection}/>
+            <Tracker />
           </div>
         )
       }

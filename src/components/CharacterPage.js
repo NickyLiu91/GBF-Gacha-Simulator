@@ -62,7 +62,7 @@ class CharacterPage extends React.Component {
               </div>
             </div>
           </div>
-          <Tracker ssrCollection={this.props.ssrCollection}/>
+          <Tracker />
         </div>
       )
     } else {
@@ -78,7 +78,7 @@ class CharacterPage extends React.Component {
             </div>
             <button onClick={event => {this.skip(event)}}>Skip</button>
           </div>
-          <Tracker ssrCollection={this.props.ssrCollection}/>
+          <Tracker />
         </div>
       )
     }

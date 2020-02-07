@@ -8,6 +8,17 @@ import {compose} from 'redux';
 
 class ResultPage extends React.Component {
 
+  // state = {
+  //   trackList: []
+  // }
+  //
+  // componentDidMount() {
+  //   this.setState({
+  //     trackList: this.generateNoDupesSSRCollection()
+  //   })
+  // }
+
+
   rollTen = (event) => {
 
     if (this.props.crystals >= 3000) {
@@ -144,7 +155,7 @@ class ResultPage extends React.Component {
             })}
           </ul>
         </div>
-        <Tracker ssrCollection={this.props.ssrCollection}/>
+        <Tracker />
       </div>
     )
   }
