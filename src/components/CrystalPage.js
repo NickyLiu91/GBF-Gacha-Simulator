@@ -6,15 +6,17 @@ const CrystalPage = (props) => {
   console.log(props)
   if (props.result.filter(object => object.rarity == "R").length == props.result.length) {
     return (
-      <div id="crystal-page">
-        <div id="summon-area">
-          <div id="background-glow">
-          </div>
-          <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
-            <img id="blue-summon-crystal" src="images/SSR Crystal.png" />
-          </div>
+      <div id="page">
+        <div id="crystal-page">
+          <div id="summon-area">
+            <div id="background-glow">
+            </div>
+            <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
+              <img id="blue-summon-crystal" src="images/SSR Crystal.png" />
+            </div>
+          </div
         </div>
-        <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
+        <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
       </div>
     )
   } else if (props.result.filter(object => object.rarity == "SSR").length > 0) {
@@ -22,19 +24,38 @@ const CrystalPage = (props) => {
     console.log(output)
     if (output > 50) {
       return (
-        <div id="crystal-page">
-          <div id="summon-area">
-            <div id="background-glow">
-            </div>
-            <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
-              <img src="images/SSR Crystal.png" />
+        <div id="page">
+          <div id="crystal-page">
+            <div id="summon-area">
+              <div id="background-glow">
+              </div>
+              <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
+                <img src="images/SSR Crystal.png" />
+              </div>
             </div>
           </div>
-          <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
+          <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
         </div>
       )
     } else {
       return (
+        <div id="page">
+          <div id="crystal-page">
+            <div id="summon-area">
+              <div id="background-glow">
+              </div>
+              <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
+                <img src="images/SR Crystal.png" />
+              </div>
+            </div>
+          </div>
+          <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
+        </div>
+      )
+    }
+  } else {
+    return (
+      <div id="page">
         <div id="crystal-page">
           <div id="summon-area">
             <div id="background-glow">
@@ -42,22 +63,9 @@ const CrystalPage = (props) => {
             <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
               <img src="images/SR Crystal.png" />
             </div>
-          </div>
-          <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
+          </div
         </div>
-      )
-    }
-  } else {
-    return (
-      <div id="crystal-page">
-        <div id="summon-area">
-          <div id="background-glow">
-          </div>
-          <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
-            <img src="images/SR Crystal.png" />
-          </div>
-        </div>
-        <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
+        <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
       </div>
     )
   }
