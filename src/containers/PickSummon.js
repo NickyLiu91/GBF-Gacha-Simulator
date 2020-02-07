@@ -120,13 +120,18 @@ class PickSummon extends React.Component {
             allRolls.push(result)
           } else {
             let output = Math.floor(Math.random() * 100)
+            console.log(output)
 
             if (output <= 82) {
               result = filteredR[Math.floor(Math.random() * filteredR.length)]
             } else if (output <= 97) {
               result = filteredSR[Math.floor(Math.random() * filteredSR.length)]
             } else {
-              result = filteredSSR[Math.floor(Math.random() * filteredSSR.length)]
+              console.log(filteredSSR)
+              let random = Math.random()
+              console.log(random)
+              result = filteredSSR[Math.floor(random * filteredSSR.length)]
+              console.log(result)
               updatedSSRCollection.push(result)
               this.props.changeSSRCollection(updatedSSRCollection)
               console.log(updatedSSRCollection)
@@ -190,25 +195,6 @@ class PickSummon extends React.Component {
     }
   }
 
-  getCharacters = () => {
-    this.props.changeDisplay("CharacterPage")
-  }
-
-  nextRoll = () => {
-    if (this.props.rollNumber === this.props.result.length - 1) {
-      if (this.props.result.length === 1) {
-        this.props.changeDisplay("PickSummon")
-      } else {
-        this.props.changeDisplay("ResultPage")
-        this.props.changeRollNumber(0)
-      }
-
-    } else {
-      this.props.changeRollNumber(this.props.rollNumber + 1)
-      console.log(this.props.rollNumber)
-      this.props.changeDisplay("WeaponPage")
-    }
-  }
 
   changeEventName = (event) => {
     event.preventDefault()
@@ -222,11 +208,6 @@ class PickSummon extends React.Component {
     this.setState({
       galaName: event.target.value
     })
-  }
-
-  skip = (event) => {
-    this.props.changeDisplay("ResultPage")
-    this.props.changeRollNumber(0)
   }
 
   generateNoDupesSSRCollection = () => {

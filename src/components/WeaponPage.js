@@ -9,10 +9,10 @@ class WeaponPage extends React.Component {
   nextRoll = () => {
     if (this.props.rollNumber === this.props.result.length - 1) {
       if (this.props.result.length === 1) {
-        this.props.changeDisplay("PickSummon")
+        // this.props.changeDisplay("PickSummon")
         this.props.history.push("/summon")
       } else {
-        this.props.changeDisplay("ResultPage")
+        // this.props.changeDisplay("ResultPage")
         this.props.history.push("/result")
         this.props.changeRollNumber(0)
       }
@@ -20,18 +20,18 @@ class WeaponPage extends React.Component {
     } else {
       this.props.changeRollNumber(this.props.rollNumber + 1)
       console.log(this.props.rollNumber)
-      this.props.changeDisplay("WeaponPage")
+      // this.props.changeDisplay("WeaponPage")
       this.props.history.push("/weapon")
     }
   }
 
   getCharacters = () => {
-    this.props.changeDisplay("CharacterPage")
+    // this.props.changeDisplay("CharacterPage")
     this.props.history.push("/character")
   }
 
   skip = (event) => {
-    this.props.changeDisplay("ResultPage")
+    // this.props.changeDisplay("ResultPage")
     this.props.history.push("/result")
     this.props.changeRollNumber(0)
   }
