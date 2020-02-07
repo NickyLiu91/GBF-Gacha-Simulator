@@ -183,6 +183,7 @@ class PickSummon extends React.Component {
         this.skip()
       } else {
         this.props.changeDisplay("CrystalPage")
+        this.props.history.push("/crystal")
       }
     } else {
       alert('You do not have enough crystals left!')

@@ -1,6 +1,8 @@
 import React from "react";
 import {connect} from 'react-redux';
 import Tracker from '../containers/Tracker'
+import {Route, Link, withRouter} from 'react-router-dom';
+import {compose} from 'redux';
 
 const CrystalPage = (props) => {
   console.log(props)
@@ -11,7 +13,7 @@ const CrystalPage = (props) => {
           <div id="summon-area">
             <div id="background-glow">
             </div>
-            <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
+            <div id="crystal" onClick={event => {props.history.push("/weapon")}}>
               <img id="blue-summon-crystal" src="images/SSR Crystal.png" />
             </div>
           </div>
@@ -29,7 +31,7 @@ const CrystalPage = (props) => {
             <div id="summon-area">
               <div id="background-glow">
               </div>
-              <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
+              <div id="crystal" onClick={event => {props.history.push("/weapon")}}>
                 <img src="images/SSR Crystal.png" />
               </div>
             </div>
@@ -44,7 +46,7 @@ const CrystalPage = (props) => {
             <div id="summon-area">
               <div id="background-glow">
               </div>
-              <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
+              <div id="crystal" onClick={event => {props.history.push("/weapon")}}>
                 <img src="images/SR Crystal.png" />
               </div>
             </div>
@@ -60,7 +62,7 @@ const CrystalPage = (props) => {
           <div id="summon-area">
             <div id="background-glow">
             </div>
-            <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
+            <div id="crystal" onClick={event => {props.history.push("/weapon")}}>
               <img src="images/SR Crystal.png" />
             </div>
           </div>
@@ -83,7 +85,8 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  withRouter,
+  connect(mapStateToProps,
+  mapDispatchToProps)
 )(CrystalPage);
