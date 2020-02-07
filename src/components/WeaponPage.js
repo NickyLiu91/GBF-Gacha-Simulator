@@ -18,7 +18,7 @@ const WeaponPage = (props) => {
               </div>
             </div>
           </div>
-          <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
+          <Tracker ssrCollection={props.ssrCollection}/>
         </div>
       )
     } else {
@@ -35,7 +35,7 @@ const WeaponPage = (props) => {
               </div>
             </div>
           </div>
-          <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
+          <Tracker ssrCollection={props.ssrCollection}/>
         </div>
       )
     }
@@ -55,7 +55,7 @@ const WeaponPage = (props) => {
             </div>
             <button onClick={event => {props.skip(event)}}>Skip</button>
           </div>
-          <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
+          <Tracker ssrCollection={props.ssrCollection}/>
         </div>
       )
     } else {
@@ -73,7 +73,7 @@ const WeaponPage = (props) => {
             </div>
             <button onClick={event => {props.skip(event)}}>Skip</button>
           </div>
-          <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
+          <Tracker ssrCollection={props.ssrCollection}/>
         </div>
       )
     }

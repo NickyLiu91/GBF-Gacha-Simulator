@@ -30,7 +30,7 @@ const ResultPage = (props) => {
           })}
         </ul>
       </div>
-      <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
+      <Tracker ssrCollection={props.ssrCollection}/>
     </div>
   )
 }

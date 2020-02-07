@@ -15,7 +15,7 @@ const CharacterPage = (props) => {
             </div>
           </div>
         </div>
-        <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
+        <Tracker ssrCollection={props.ssrCollection}/>
       </div>
     )
   } else {
@@ -31,7 +31,7 @@ const CharacterPage = (props) => {
           </div>
           <button onClick={event => {props.skip(event)}}>Skip</button>
         </div>
-        <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
+        <Tracker ssrCollection={props.ssrCollection}/>
       </div>
     )
   }
