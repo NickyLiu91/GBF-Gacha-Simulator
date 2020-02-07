@@ -1,5 +1,35 @@
 import {combineReducers} from 'redux'
 
+function eventTypeChanger(state = {eventType: 'None'}, action) {
+  switch (action.type) {
+    case 'CHANGE_EVENTTYPE':
+      // console.log(state);
+      return {eventType: action.newEventType}
+    default:
+      return state;
+  }
+}
+
+function galaChanger(state = {gala: 'None'}, action) {
+  switch (action.type) {
+    case 'CHANGE_GALA':
+      // console.log(state);
+      return {gala: action.newGala}
+    default:
+      return state;
+  }
+}
+
+function skipChanger(state = {skip: false}, action) {
+  switch (action.type) {
+    case 'CHANGE_SKIP':
+      // console.log(state);
+      return {skip: action.newSkip}
+    default:
+      return state;
+  }
+}
+
 function crystalChanger(state = {crystals: 90000}, action) {
   switch (action.type) {
     case 'CHANGE_CRYSTALS':
@@ -84,6 +114,9 @@ function ssrCollectionChanger(state = {ssrCollection: []}, action) {
 }
 
 export default combineReducers({
+  eventTypeChanger,
+  galaChanger,
+  skipChanger,
   crystalChanger,
   resultChanger,
   displayChanger,

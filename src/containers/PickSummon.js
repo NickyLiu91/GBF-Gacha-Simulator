@@ -10,11 +10,11 @@ import {Route, Link, withRouter} from 'react-router-dom';
 
 class PickSummon extends React.Component {
 
-  state = {
-    eventName: "None",
-    galaName: "None",
-    skip: false
-  }
+  // state = {
+  //   eventName: "None",
+  //   galaName: "None",
+  //   skip: false
+  // }
 
   componentDidMount() {
     let rare = []
@@ -51,12 +51,12 @@ class PickSummon extends React.Component {
     if (this.props.crystals >= 300) {
       let result
       let output = Math.floor(Math.random() * 100)
-      let filteredR = this.props.r.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
-      let filteredSR = this.props.sr.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
-      let filteredSSR = this.props.ssr.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
+      let filteredR = this.props.r.filter(object => object.eventtype == "None" || object.eventtype == this.props.eventType || object.eventtype == this.props.gala)
+      let filteredSR = this.props.sr.filter(object => object.eventtype == "None" || object.eventtype == this.props.eventType || object.eventtype == this.props.gala)
+      let filteredSSR = this.props.ssr.filter(object => object.eventtype == "None" || object.eventtype == this.props.eventType || object.eventtype == this.props.gala)
       let updatedSSRCollection = this.props.ssrCollection
 
-      if (this.state.galaName === "None") {
+      if (this.props.gala === "None") {
         if (output <= 82) {
           result = filteredR[Math.floor(Math.random() * filteredR.length)]
         } else if (output <= 97) {
@@ -97,15 +97,15 @@ class PickSummon extends React.Component {
       let allRolls = []
       let sortedArray
       var i
-      let filteredR = this.props.r.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
-      let filteredSR = this.props.sr.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
-      let filteredSSR = this.props.ssr.filter(object => object.eventtype == "None" || object.eventtype == this.state.eventName || object.eventtype == this.state.galaName)
+      let filteredR = this.props.r.filter(object => object.eventtype == "None" || object.eventtype == this.props.eventType || object.eventtype == this.props.gala)
+      let filteredSR = this.props.sr.filter(object => object.eventtype == "None" || object.eventtype == this.props.eventType || object.eventtype == this.props.gala)
+      let filteredSSR = this.props.ssr.filter(object => object.eventtype == "None" || object.eventtype == this.props.eventType || object.eventtype == this.props.gala)
       let updatedSSRCollection = this.props.ssrCollection
       console.log(updatedSSRCollection)
 
       for (i = 0; i < 10; i++) {
 
-        if (this.state.galaName === "None") {
+        if (this.props.gala === "None") {
           if (i == 9) {
             let output = Math.floor(Math.random() * 100)
 
@@ -184,7 +184,7 @@ class PickSummon extends React.Component {
       this.props.changeResult(sortedArray)
       this.props.changeCrystals(this.props.crystals - 3000)
 
-      if (this.state.skip) {
+      if (this.props.skip) {
         this.skip()
       } else {
         this.props.changeDisplay("CrystalPage")
@@ -195,19 +195,29 @@ class PickSummon extends React.Component {
     }
   }
 
+  skip = () => {
+    this.props.changeRollNumber(0)
+    this.props.history.push("/result")
+  }
 
   changeEventName = (event) => {
-    event.preventDefault()
-    this.setState({
-      eventName: event.target.value
-    })
+    // event.preventDefault()
+    // this.setState({
+    //   eventName: event.target.value
+    // }, () => {
+      this.props.changeEventType(this.props.eventType)
+    // })
   }
 
   changeGalaName = (event) => {
-    event.preventDefault()
-    this.setState({
-      galaName: event.target.value
-    })
+    // event.preventDefault()
+    // this.setState({
+    //   galaName: event.target.value
+    // }, () => {
+    //   console.log(event.target.value)
+    //   console.log(this.props.gala)
+      this.props.changeGala(event.target.value)
+    // })
   }
 
   generateNoDupesSSRCollection = () => {
@@ -228,9 +238,10 @@ class PickSummon extends React.Component {
   }
 
   changeChecked = () => {
-    this.setState({
-      skip: !this.state.skip
-    })
+    // this.setState({
+    //   skip: !this.props.skip
+    // })
+    this.props.changeSkip(!this.props.skip)
   }
 
   render () {
@@ -242,7 +253,7 @@ class PickSummon extends React.Component {
               <div className="event-bar">
               <div>Event:</div>
                 <form>
-                  <select onChange={this.changeEventName} value={this.state.eventName}>
+                  <select onChange={this.changeEventName} value={this.props.eventType}>
                     <option value="None" >None</option>
                     <option value="Summer" >Summer</option>
                     <option value="Halloween" >Halloween</option>
@@ -254,7 +265,7 @@ class PickSummon extends React.Component {
               <div className="event-bar">
               <div>Gala:</div>
                 <form>
-                  <select onChange={this.changeGalaName} value={this.state.galaName}>
+                  <select onChange={this.changeGalaName} value={this.props.gala}>
                     <option value="None" >None</option>
                     <option value="Flash" >Flash</option>
                     <option value="Grand" >Grand</option>
@@ -264,7 +275,7 @@ class PickSummon extends React.Component {
               <div className="event-bar">
               <div>Skip:</div>
                 <form>
-                  <input type="checkbox" onChange={this.changeChecked} checked={this.state.skip}>
+                  <input type="checkbox" onChange={this.changeChecked} checked={this.props.skip}>
                   </input>
                 </form>
               </div>
@@ -304,6 +315,9 @@ class PickSummon extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    eventType: state.eventTypeChanger.eventtype,
+    gala: state.galaChanger.gala,
+    skip: state.skipChanger.skip,
     crystals: state.crystalChanger.crystals,
     result: state.resultChanger.result,
     display: state.displayChanger.display,
@@ -317,6 +331,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    changeEventType: (event) => dispatch({type: 'CHANGE_EVENTTYPE', newEventType: event}),
+    changeGala: (event) => dispatch({type: 'CHANGE_GALA', newGala: event}),
+    changeSkip: (event) => dispatch({type: 'CHANGE_SKIP', newSkip: event}),
     changeCrystals: (event) => dispatch({type: 'CHANGE_CRYSTALS', newCrystals: event}),
     changeResult: (event) => dispatch({type: 'CHANGE_RESULT', newResult: event}),
     changeDisplay: (event) => dispatch({type: 'CHANGE_DISPLAY', newDisplay: event}),
