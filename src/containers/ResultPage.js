@@ -8,16 +8,35 @@ import {compose} from 'redux';
 
 class ResultPage extends React.Component {
 
-  // state = {
-  //   trackList: []
-  // }
+  state = {
+    trackList: []
+  }
   //
   // componentDidMount() {
-  //   this.setState({
-  //     trackList: this.generateNoDupesSSRCollection()
-  //   })
+  //   this.generateNoDupesSSRCollection()
   // }
+  //
+  /generateNoDupesSSRCollection = () => {
+    let noDuplicatesCollection = []
 
+    this.props.ssrCollection.map(item => {
+      if (noDuplicatesCollection.filter(item2 => item2.weapon == item.weapon).length == 0) {
+        noDuplicatesCollection.push([item, 0])
+      } else {
+        let index = noDuplicatesCollection.findIndex(obj => {
+          obj[0] = item
+        })
+        noDuplicatesCollection[index] = [item, noDuplicatesCollection[index][1] += 1]
+      }
+    })
+
+    noDuplicatesCollection.map(item => {
+      item.quantity = this.props.ssrCollection.filter(item2 => item2.weapon === item.weapon).length;
+      return item
+    })
+
+    // return noDuplicatesCollection
+  }
 
   rollTen = (event) => {
 
@@ -155,7 +174,7 @@ class ResultPage extends React.Component {
             })}
           </ul>
         </div>
-        <Tracker />
+        <Tracker ssrCollection={this.props.ssrCollection} />
       </div>
     )
   }

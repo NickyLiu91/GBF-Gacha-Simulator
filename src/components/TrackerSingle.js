@@ -1,16 +1,17 @@
 import React from "react";
 
 const TrackerSingle = (props) => {
+  console.log(props.item)
   if (props.item.character != "None") {
     return (
       <div id="tracker-single">
-        {props.item.quantity} {props.item.weapon} {"(" + props.item.character + ")"}
+        {props.quantity} {props.item.weapon} {"(" + props.item.character + ")"}
       </div>
     )
   } else {
     return (
       <div id="tracker-single">
-        {props.item.quantity} {props.item.weapon}
+        {props.quantity} {props.item.weapon}
       </div>
     )
   }
