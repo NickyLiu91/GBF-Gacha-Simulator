@@ -14,7 +14,7 @@ const CrystalPage = (props) => {
             <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
               <img id="blue-summon-crystal" src="images/SSR Crystal.png" />
             </div>
-          </div
+          </div>
         </div>
         <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
       </div>
@@ -63,7 +63,7 @@ const CrystalPage = (props) => {
             <div id="crystal" onClick={event => {props.changeDisplay("WeaponPage")}}>
               <img src="images/SR Crystal.png" />
             </div>
-          </div
+          </div>
         </div>
         <Tracker ssrCollection={props.generateNoDupesSSRCollection()}/>
       </div>

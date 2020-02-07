@@ -326,27 +326,19 @@ class PickSummon extends React.Component {
       )
     } else if (this.props.display === "CrystalPage") {
       return(
-        <div id="page">
-          <CrystalPage  ssrCollection={this.generateNoDupesSSRCollection()}/>
-        </div>
+        <CrystalPage  ssrCollection={this.generateNoDupesSSRCollection()}/>
       )
     } else if (this.props.display === "WeaponPage") {
       return(
-        <div id="page">
-          <WeaponPage getCharacters={this.getCharacters} nextRoll={this.nextRoll} skip={this.skip} ssrCollection={this.generateNoDupesSSRCollection()}/>
-        </div>
+        <WeaponPage getCharacters={this.getCharacters} nextRoll={this.nextRoll} skip={this.skip} ssrCollection={this.generateNoDupesSSRCollection()}/>
       )
     } else if (this.props.display === "CharacterPage") {
       return(
-        <div id="page">
-          <CharacterPage nextRoll={this.nextRoll} skip={this.skip} ssrCollection={this.generateNoDupesSSRCollection()}/>
-        </div>
+        <CharacterPage nextRoll={this.nextRoll} skip={this.skip} ssrCollection={this.generateNoDupesSSRCollection()}/>
       )
     } else if (this.props.display === "ResultPage") {
       return(
-        <div id="page">
-          <ResultPage rollTen={this.rollTen} ssrCollection={this.generateNoDupesSSRCollection()}/>
-        </div>
+        <ResultPage rollTen={this.rollTen} ssrCollection={this.generateNoDupesSSRCollection()}/>
       )
     }
   }
