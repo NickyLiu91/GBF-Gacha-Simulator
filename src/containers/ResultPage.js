@@ -175,7 +175,7 @@ class ResultPage extends React.Component {
             })}
           </ul>
         </div>
-        <Tracker ssrCollection={this.generateNoDupesSSRCollection()}/>
+        <Tracker filteredCollection={this.generateNoDupesSSRCollection()} resultPage={true}/>
       </div>
     )
   }

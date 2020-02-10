@@ -4,14 +4,14 @@ import {connect} from 'react-redux';
 
 class Tracker extends React.Component {
 
-  state = {
-    trackList: []
-  }
-
-  componentDidMount() {
-    this.generateNoDupesSSRCollection()
-  }
-
+  // state = {
+  //   trackList: []
+  // }
+  //
+  // componentDidMount() {
+  //   this.generateNoDupesSSRCollection()
+  // }
+  //
   generateNoDupesSSRCollection = () => {
     let noDuplicatesCollection = []
 
@@ -36,16 +36,29 @@ class Tracker extends React.Component {
   }
 
   render (){
-    return (
-      <div>
-        <ul id="tracker">
-        <h1 id="list-title">SSR Loot</h1>
-        {this.props.ssrCollection.map((item, index) => {
-          return (<TrackerSingle key={index} item={item}/>)
-        })}
-        </ul>
-      </div>
-    )
+    if (this.props.resultPage == true) {
+      return (
+        <div>
+          <ul id="tracker">
+            <h1 id="list-title">SSR Loot</h1>
+            {this.props.filteredCollection.map((item, index) => {
+              return (<TrackerSingle key={index} item={item}/>)
+            })}
+          </ul>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <ul id="tracker">
+            <h1 id="list-title">SSR Loot</h1>
+            {this.generateNoDupesSSRCollection().map((item, index) => {
+              return (<TrackerSingle key={index} item={item}/>)
+            })}
+          </ul>
+        </div>
+      )
+    }
   }
 }
 
@@ -53,7 +66,7 @@ class Tracker extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    // ssrCollection: state.ssrCollectionChanger.ssrCollection
+    ssrCollection: state.ssrCollectionChanger.ssrCollection
   }
 }
 
