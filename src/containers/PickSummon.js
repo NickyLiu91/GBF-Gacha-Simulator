@@ -335,7 +335,7 @@ const mapDispatchToProps = dispatch => {
     changeSkip: (event) => dispatch({type: 'CHANGE_SKIP', newSkip: event}),
     changeCrystals: (event) => dispatch({type: 'CHANGE_CRYSTALS', newCrystals: event}),
     changeResult: (event) => dispatch({type: 'CHANGE_RESULT', newResult: event}),
-    changeRollNumber: (event) => dispatch({type: 'CHANGE_ROLL_NUMBER', newRollNumber: event}),
+    changeRollNumber: (event) => dispatch({type: 'CHANGE_ROLLNUMBER', newRollNumber: event}),
     changeR: (event) => dispatch({type: 'CHANGE_R', newR: event}),
     changeSR: (event) => dispatch({type: 'CHANGE_SR', newSR: event}),
     changeSSR: (event) => dispatch({type: 'CHANGE_SSR', newSSR: event}),

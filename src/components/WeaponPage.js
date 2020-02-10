@@ -125,7 +125,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeRollNumber: (event) => dispatch({type: 'CHANGE_ROLL_NUMBER', newRollNumber: event}),
+    changeRollNumber: (event) => dispatch({type: 'CHANGE_ROLLNUMBER', newRollNumber: event}),
   }
 }
 

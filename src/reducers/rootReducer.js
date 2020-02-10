@@ -52,7 +52,7 @@ function resultChanger(state = {result: []}, action) {
 
 function rollNumberChanger(state = {rollNumber: 0}, action) {
   switch (action.type) {
-    case 'CHANGE_ROLL_NUMBER':
+    case 'CHANGE_ROLLNUMBER':
       // console.log(state);
       return {rollNumber: action.newRollNumber}
     default:
