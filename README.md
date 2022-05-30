@@ -12,7 +12,7 @@ A fanmade simulator performing summons in the popular browser/mobile game Granbl
 4) If using the ten roll the user can click skip to jump to the end page, which displays a list of images and names of aquired summons
 5) All notable summons (SSR) are displayed on a list on the right.
 
-Uses react for the frontend, redux for page transitions, and connects to a backend api (either https://github.com/NickyLiu91/GBF_Gacha_API or https://github.com/NickyLiu91/GBF_API_2). The first api is created using ruby on rails/PostgreSQL, while the second uses node.js/MongoDB.
+Uses react for the frontend, redux for page transitions, and connects to a backend api (either https://github.com/NickyLiu91/GBF_Gacha_API or https://github.com/NickyLiu91/GBF_API_2). The first api is created using Ruby on Rails/PostgreSQL, while the second uses Node.js/MongoDB.
 
 ## Demo Video
 https://www.youtube.com/watch?v=SNKGeqO6UHw
