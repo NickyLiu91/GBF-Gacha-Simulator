@@ -17,10 +17,10 @@ A fanmade simulator performing summons in the popular browser/mobile game Granbl
 2) create .env file
 3) type "SKIP_PREFLIGHT_CHECK=true" inside .env
 4) npm audit fix --force
-5) start api (instructions in the below repos)
+5) start api (instructions here: https://github.com/NickyLiu91/GBF_Gacha_API)
 6) npm start
 
-Uses react for the frontend, redux for page transitions, and connects to a backend api (either https://github.com/NickyLiu91/GBF_Gacha_API or https://github.com/NickyLiu91/GBF_API_2). The first api is created using Ruby on Rails/PostgreSQL, while the second uses Node.js/MongoDB.
+Uses react for the frontend, redux for page transitions, and connects to a backend api created using Ruby on Rails/PostgreSQL https://github.com/NickyLiu91/GBF_Gacha_API.
 
 ## Demo Video
 https://www.youtube.com/watch?v=SNKGeqO6UHw
