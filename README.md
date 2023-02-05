@@ -13,12 +13,12 @@ A fanmade simulator performing summons in the popular browser/mobile game Granbl
 5) All notable summons (SSR) are displayed on a list on the right.
 
 ### Instructions:
-npm install
-create .env file
-type "SKIP_PREFLIGHT_CHECK=true" inside .env
-npm audit fix --force
-start api (instructions in the below repos)
-npm start
+1) npm install
+2) create .env file
+3) type "SKIP_PREFLIGHT_CHECK=true" inside .env
+4) npm audit fix --force
+5) start api (instructions in the below repos)
+6) npm start
 
 Uses react for the frontend, redux for page transitions, and connects to a backend api (either https://github.com/NickyLiu91/GBF_Gacha_API or https://github.com/NickyLiu91/GBF_API_2). The first api is created using Ruby on Rails/PostgreSQL, while the second uses Node.js/MongoDB.
 
